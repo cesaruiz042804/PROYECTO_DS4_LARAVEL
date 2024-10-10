@@ -1,0 +1,465 @@
+/*Start Fonts and variables for colors*/
+@font-face {
+    font-family: 'Poppins'; /* Nombre de la fuente */
+    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Poppins\Poppins-ExtraBold.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Saira'; /* Nombre de la fuente */
+    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-Regular.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SairaE'; /* Nombre de la fuente */
+    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-ExtraBold.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --brown_: #671F1F;
+    --pink_:#EF83D180;
+    --celeste_: #D6E9FF
+}
+/*End fonts and variables for colors*/
+
+body,header,main,footer{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Saira';
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient(circle at 100% 100%, var(--celeste_), transparent);
+}
+/*Seccion header---------------Inicio*/
+header{
+    position: absolute; /*El main ocupa 100dvh y el header esta absoluto para que el fondo forme parte tambien del fondo del header gracias al z-index*/
+    width:100%;
+    height: 15dvh;
+    z-index: 100;
+}
+
+#MenuHamburguesa{
+    display: none;
+}
+
+.Header__NavegadorSecundario{
+    display: none;
+}
+
+.header__nav{
+    display: flex;
+    justify-content: space-between; /* Centramos los elementos en el eje horizontal */
+    margin: 20px 20px;
+}
+
+.header__nav img{
+    height: 60px;
+    width: 60px;
+}
+
+.header-a img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-left: 1%;
+}
+
+.header__nav-list{
+    display: flex;
+    flex: 1;
+    justify-content: end;
+}
+
+.header__nav-list li{
+    list-style: none;
+    margin: 5px 20px 0 20px;
+}
+
+.nav__list-a{
+    text-decoration: none;
+    color: black;
+}
+
+.enlaceLogin{
+    background-color: var(--pink_);
+    padding: 5px 20px;
+    border-radius: 15px;
+}
+
+/*Psudoe-clases para los a del header--------inicio*/
+.nav__list-a:active{
+    color:#0001
+}
+
+.nav__list-a:visited{
+    color: black;
+}
+
+.nav__list-a:hover{
+    border-bottom: 1px solid black;
+}
+
+.nav__list-a:focus{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.header-a:visited{
+    color: var(--brown_);
+}
+/*Psudoe-clases para los a del header--------final*/
+/*Section header end------------------*/
+
+/*Seccion main---------------Inicio*/
+main{
+    height: 100dvh;
+    overflow: hidden;
+}
+
+main p{
+    font-family: 'SairaE';
+    font-size: 17.6px;
+    color: var(--brown_);
+    margin: 184px 0 0 200px;
+}
+
+main h1{
+    font-family: 'Poppins';
+    font-size: 56.32px;
+    color: var(--brown_);
+    margin: 0 0 0 200px;
+}
+
+main h2{
+    font-family: 'Saira';
+    font-size: 15px;
+    color: var(--brown_);
+    margin: 0 0 0 200px;
+}
+
+main button{
+    width: 170.32px;
+    height: 55.7px;
+    background-color: var(--pink_);
+    color: white;
+    margin: 0 0 0 200px;
+    margin-top: 30px;
+    border-radius: 7.04px;
+    box-shadow: 0px 4px 4px #00000025;
+    border: none;
+}
+
+main button a{
+    color: white;
+    text-decoration: none;
+}
+
+.Contenedor-1{
+    position: absolute;
+    top: -184.59px;
+    left: -50px;
+    z-index: -1;
+    transform: rotate(38.66deg);
+}
+
+.Contenedor-2{
+    height: 400px;
+    position: relative;
+}
+
+.Contenedor-2 img{
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    left: 550px;
+    bottom: 50px;
+}
+
+
+/*Psudoe-clases para el button del main-------inicio*/
+main button:active{
+    background-color:#F58E9910 ;
+}
+
+main button a:visited{
+    color: white;
+}
+
+main button:hover{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+}
+
+main button a:focus{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+}
+/*Psudoe-clases para el button del main-------final*/
+/*Seccion main---------------Final*/
+
+/*Seccion footer---------------Inicio*/
+footer{
+    height: 221px;
+    background-image: linear-gradient(to right, var(--celeste_), #D847C0);
+    box-shadow: 0px -4px 4px #00000025;
+}
+
+footer p{
+    font-size: 24px;
+    padding: 0 0 0 20px;
+}
+
+.Footer__Contenedor{
+    width: 30%;
+    padding: 0 0 0 20px;
+}
+
+.Footer__Contenedor a{
+    color: black;
+    text-decoration: none;
+}
+.Contenedor__Items1{
+    font-size: 15px;
+    display: inline-block;
+    width: 150px;
+    padding: 0;
+    align-items: center;
+}
+
+.Contenedor__Items2{
+    font-size: 15px;
+    display: inline-block;
+    width: 200px;
+    padding: 0;
+    align-items: center;
+}
+
+/*Psudoe-clases para el button del main-------final*/
+.Contenedor__Items1 a:active{
+    color: #0001;
+}
+
+.Contenedor__Items1 a:visited{
+    color: black;
+}
+
+.Contenedor__Items1 a:hover{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    border-radius: 5px;
+}
+
+.Contenedor__Items2 a:active{
+    color: #0001;
+}
+
+.Contenedor__Items2 a:visited{
+    color: black;
+}
+
+.Contenedor__Items2 a:hover{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    border-radius: 5px;
+}
+
+/*Psudoe-clases para el footer del main-------final*/
+/*Seccion footer---------------Final*/
+
+
+
+
+/*Adaptacion a movil---------------Start*/
+@media (max-width: 768px) {
+    /* Estilos para pantallas de 768px o menos */
+    /*Header Section-------Start*/
+    header{
+        width: 100dvw;
+        height: 10vh;
+        justify-content: space-between;
+        overflow: hidden;
+        align-content: center;
+        z-index: 1001;
+        position: fixed;
+        background-color: #fff;
+        box-shadow: 0 2px 2px #0002;
+    }
+
+    .transparent{
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .quitar{
+        display: none;
+    }
+    #MenuHamburguesa{
+        display: block;
+        background-color: transparent;
+        border: none;
+    }
+
+    #MenuHamburguesa img{
+        position: absolute;
+        top: 30%;
+        width: 40px;
+        height: 40px;
+    }
+
+    #MenuHamburguesa:active{
+        transform: scale(1.1);
+    }
+
+    .header-a{
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        width: 50px;
+        height: 50px;
+    }
+
+    .header-a img{
+        position: relative;
+        width: 50px;
+        height: 50px;
+    }
+
+    .header__nav-list{
+        display: none;
+    }
+    
+    .Header__NavegadorSecundario{
+        height: 100%;
+        width: 100dvw;
+        background-color: var(--celeste_);
+        position: fixed;
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .header__nav-listSecundario{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        background-color: aliceblue;
+    }
+
+    .Header__NavegadorSecundario.active{
+        display: block;
+        header{
+            background-color: transparent;
+        }
+    }
+
+    .header__nav-listSecundario li{
+        flex: 1;
+        align-content: center;
+        list-style: none;
+    }
+
+    .navSecundario__list-a
+    {
+        color: var(--brown_);
+        text-decoration: none;
+        font-size: 25px;
+    }
+    /*Header Section-------End*/
+    main{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main p{
+        font-size: 15px;
+        margin: 35% 0 0 25px;
+    }
+    
+    main h1{
+        font-size: 60px;
+        margin: 0 0 0 25px;
+    }
+    
+    main h2{
+        font-size: 15px;
+        margin: 0 0 0 25px;
+    }
+    
+    main button{
+        width: 170.32px;
+        height: 55.7px;
+        margin: 0 0 0 25px;
+        margin-top: 30px;
+        background-color: pink;
+    }
+
+    .Contenedor-1{
+        height: 400px;
+        position: relative;
+        display: none;
+    }
+    
+    .Contenedor-2{
+        height: 400px;
+        position:relative;  
+        z-index: -1;
+    }
+
+    .Contenedor-2 img{
+        width: 495px;
+        height: 575px;
+        position: absolute;
+        top: -10%;
+        left: -25px;
+    }
+    /*Header Main-------Start*/
+    
+    /*Header Main-------End*/
+    footer p{
+        font-size: 20px;
+        font-weight: bold;
+        padding: 0 0 0 20px;
+    }
+    
+    .Footer__Contenedor{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .Contenedor__Items1{
+        font-size: 15px;
+        display: inline-block;
+        width: 150px;
+        padding: 0;
+        align-items: center;
+    }
+    
+    .Contenedor__Items2{
+        font-size: 15px;
+        display: inline-block;
+        width: 200px;
+        padding: 0;
+        align-items: center;
+    }
+    /*Header Footer-------End*/
+
+  }
+  /*Adaptacion a movil---------------End*/
+
+
+
+
+
+
+

@@ -1,0 +1,389 @@
+body,header,main,footer{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Saira';
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to right, var(--pink_),var(--Amarillo_));
+}
+
+
+/*Start Fonts and variables for colors*/
+@font-face {
+    font-family: 'Poppins'; /* Nombre de la fuente */
+    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Poppins\Poppins-ExtraBold.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Saira'; /* Nombre de la fuente */
+    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-Regular.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SairaE'; /* Nombre de la fuente */
+    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-ExtraBold.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+} 
+
+:root{
+    --brown_: #671F1F;
+    --pink_:#EF83D180;
+    --celeste_: #D6E9FF;
+    --menta_: #608F80;
+    --chocolate_:#8F620A;
+    --cereza_:#A01927;
+    --Amarillo_:#CAC326;
+}
+/*End fonts and variables for colors*/
+
+/*Header section start----------------*/
+header{
+    position:absolute; /*El main ocupa 100dvh y el header esta absoluto para que el fondo forme parte tambien del fondo del header gracias al z-index*/
+    width:100%;
+    height: 15dvh;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.header__nav{
+    display: flex;
+    justify-content: space-between; /* Centramos los elementos en el eje horizontal */
+    align-items: center; /* Centramos los elementos en el eje vertical */
+    margin: 20px 20px;
+}
+
+.header__nav img{
+    height: 50px;
+    width: 50px;
+}
+
+.header-a{
+    flex: 1;
+    margin-left:10px ;
+    font-size: 32px;
+    color: var(--brown_);
+    text-decoration: none;
+}
+
+.header__nav-list{
+    display: flex;
+    flex: 1;
+    justify-content: end;
+}
+
+.header__nav-list li{
+    list-style: none;
+    margin: 5px 20px 0 20px;
+}
+
+.nav__list-a{
+    text-decoration: none;
+    color: black;
+}
+
+.enlaceLogin{
+    background-color: var(--pink_);
+    padding: 5px 20px;
+    border-radius: 15px;
+}
+
+/*Psudoe-clases para los a del header--------inicio*/
+.nav__list-a:active{
+    color:#0001
+}
+
+.nav__list-a:visited{
+    color: black;
+}
+
+.nav__list-a:hover{
+    border-bottom: 1px solid black;
+}
+
+.enlaceLogin:hover{
+    border: none;
+}
+
+.header-a:visited{
+    color: var(--brown_);
+}
+/*Psudoe-clases para los a del header--------final*/
+/*Section header end------------------*/
+
+/*Seccion main---------------Start*/
+main{
+    height: 100dvh;
+    overflow: hidden;
+    align-content: center;
+    z-index: 1;
+}
+
+.Main__ContenedorTarjeta{
+    width: 35%;
+    height: 85%;
+    margin: auto;
+    margin-top: 5%;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ContenedorTarjeta-ImgTarjetas{
+    width: 100%;
+}
+
+.ContenedorTarjeta-ImgTarjetas img{
+    width: 30px;
+    height: 20px;
+    margin: 10px 5px;
+}
+
+.ContenedorTarjeta-ImgTarjetas:first-child{
+    margin-left: 10px;
+}
+
+.ContenedorTarjeta-InfoTarjetas{
+    flex: 1;
+    font-family: 'Saira';
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.ContenedorTarjeta-InfoTarjetas label{
+    font-size: 18px;
+    text-align: start;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 5px auto;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* Para navegadores que soportan la propiedad estándar */
+}
+
+.ContenedorTarjeta-InfoTarjetas input{
+    border-radius: 15px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.ContenedorTarjeta-InfoTarjetas p{
+    width: 90%;
+    text-align: justify;
+    margin: auto;
+}
+
+.ContenedorTarjeta-InfoTarjetas h3{
+    margin: 5px auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.ContenedroTarjeta-BotonesDePagar{
+    justify-content: space-between;
+    display: flex;
+}
+
+.InfoTarjeta-Cambiar{
+    align-items: center;
+    /*background-color: #608F80;*/
+}
+
+.InfoTarjeta-Pagar{
+    align-items: center;
+    /*background-color: #608F80;*/
+}
+
+.InfoTarjeta-Cambiar a{
+    display: flex;
+    background-color: var(--pink_);
+    width: 30%;
+    border-radius: 15px;
+    height: 25px;
+    padding: 0 20px;
+    color: black;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.InfoTarjeta-Pagar button{
+    background-color: var(--pink_);
+    width: 45%;
+    display: flex;
+    padding: 0 20px;
+    border-radius: 15px;
+    height: 30px;
+    align-items: center;
+    border: none;
+    justify-content: center;
+    font-size: 15px;
+}
+
+/*Psudoe-clases para el main-------start*/
+
+.InfoTarjeta-Pagar button:active{
+    color: black;
+    opacity: 0.5;
+}
+
+.InfoTarjeta-Pagar button:visited{
+    color: black;
+}
+
+.InfoTarjeta-Pagar button:hover{
+    transform: scale(1.13); 
+}
+
+
+.InfoTarjeta-Cambiar a, .InfoTarjeta-Cambiar:active{
+    color: black;
+}
+
+.InfoTarjeta-Cambiar a, .InfoTarjeta-Cambiar:visited{
+    color: black;
+}
+
+.InfoTarjeta-Cambiar a, .InfoTarjeta-Cambiar:hover{
+    transform: scale(1.1); 
+}
+
+
+/*Psudoe-clases para el footer del main-------final*/
+/*Seccion Main-----------------End*/
+
+
+/*Seccion footer---------------Inicio*/
+footer{
+    height: 221px;
+    background-image: linear-gradient(to right, var(--celeste_), #D847C0);
+    box-shadow: 0px -4px 4px #00000025;
+}
+
+footer p{
+    font-size: 24px;
+    padding: 0 0 0 20px;
+}
+
+.Footer__Contenedor{
+    width: 30%;
+    padding: 0 0 0 20px;
+}
+
+.Footer__Contenedor a{
+    color: black;
+    text-decoration: none;
+}
+.Contenedor__Items1{
+    font-size: 15px;
+    display: inline-block;
+    width: 150px;
+    padding: 0;
+    align-items: center;
+}
+
+.Contenedor__Items2{
+    font-size: 15px;
+    display: inline-block;
+    width: 200px;
+    padding: 0;
+    align-items: center;
+}
+
+/*Psudoe-clases para el footer-------inicio*/
+.Contenedor__Items1 a:active{
+    color: #0001;
+}
+
+.Contenedor__Items1 a:visited{
+    color: black;
+}
+
+.Contenedor__Items1 a:hover{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.Contenedor__Items1 a:focus{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.Contenedor__Items2 a:active{
+    color: rgba(10, 255, 10, 0.067);
+}
+
+.Contenedor__Items2 a:visited{
+    color: black;
+}
+
+.Contenedor__Items2 a:hover{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.Contenedor__Items2 a:focus{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    padding: 5px;
+    border-radius: 5px;
+}
+/*Psudoe-clases para el footer-------final*/
+/*Seccion footer---------------Final*/
+
+.ContenedorTarjeta-InfoTarjetas{
+    flex: 1;
+    font-family: 'Saira';
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.ContenedorTarjeta-InfoTarjetas div{
+    text-align: start;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 5px auto;
+}
+
+#CVV, #NumeroTarjeta, #FechaVencimiento{
+    border-radius: 15px;
+    border: 2px solid black;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    padding-left: 3px;
+}
+
+
+#CVV:focus-within, #NumeroTarjeta:focus-within, #FechaVencimiento:focus-within {
+    border-width: 5px;
+}
+
