@@ -30,17 +30,16 @@
             Swal.fire({
                 icon: 'error',
                 title: '¡Error!',
-                text: 'Tu tarjeta ha sido rechazada. Verifica el saldo disponible o contacta con tu banco.',
                 html: `
-                    <label> Tu compra ha sido completada exitosamente. </label>
+                    <label> {{ session('typeError') }}. </label>
                     <br>
-                    <label> Metodo de pago: <strong>"{{ session('cardType') }}"</strong> </label>`,
+                    <label> Tipo de tarjeta: <strong>"{{ session('cardType') }}"</strong> </label>`,
                 imageUrl: "{{ asset(session('iconPath')) }}", // URL de la imagen que deseas mostrar
                 imageWidth: 200, // Ajusta el ancho de la imagen
                 imageHeight: 200, // Ajusta la altura de la imagen
                 imageAlt: 'Descripción de la imagen', // Texto alternativo para la imagen
                 showConfirmButton: true,
-                timer: 5000
+                timer: 6000
             }).then(() => {
                 window.location.href = "{{ url()->previous() }}";
             });

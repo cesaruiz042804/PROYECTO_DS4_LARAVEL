@@ -65,6 +65,17 @@ class PaginacionController extends Controller
         return view('crearCuenta');
     }
 
+    // Para el evento de carga
+
+    public function call_loading()
+    {
+        return view('load');
+    }
+
+    public function call_error()
+    {
+        return view('error');
+    }
     
 }
 

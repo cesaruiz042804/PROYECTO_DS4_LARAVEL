@@ -216,7 +216,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .InfoTarjeta-Cambiar a{
     display: flex;
     background-color: var(--pink_);
-    width: 30%;
+    width: 33%;
     border-radius: 15px;
     height: 25px;
     padding: 0 20px;
@@ -386,4 +386,3 @@ footer p{
 #CVV:focus-within, #NumeroTarjeta:focus-within, #FechaVencimiento:focus-within {
     border-width: 5px;
 }
-

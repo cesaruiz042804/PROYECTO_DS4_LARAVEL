@@ -8,7 +8,9 @@ use Stripe\PaymentMethod;
 use Stripe\Exception\ApiErrorException;
 use Stripe\Charge;
 use Stripe\Card;
-
+use App\Jobs\ProcessPayment;
+use Predis\Client;
+use Illuminate\Support\Facades\Log;
 
 
 class PaymentController extends Controller
@@ -31,13 +33,13 @@ class PaymentController extends Controller
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        $token = $request->input('stripeToken');
+        $token = $request->input('stripeToken'); // Se obtiene el token del input que guarda el token de stripe
 
         try {
             $charge = Charge::create([
                 'amount' => 1000, // ccentas
                 'currency' => 'usd',
-                'source' => $request->stripeToken,
+                'source' => $token,
                 'description' => 'Test Payment',
             ]);
 
@@ -52,17 +54,20 @@ class PaymentController extends Controller
                 'diners' => 'recursos_iconos/diners.png',
                 'default' => 'recursos_iconos/default.png',
             ];
-
-            $iconPath = $cardIcons[$cardType] ?? $cardIcons['default'];
             
+            session()->forget(['iconPath', 'cardType']); // Limpia también en caso de error
+            $iconPath = $cardIcons[$cardType] ?? $cardIcons['default'];
+
             //dd(compact('iconPath', 'cardType')); // Verifica los datos antes de redirigir
+            Log::debug($iconPath);
+            Log::debug($cardType);
 
             session(['iconPath' => $iconPath, 'cardType' => $cardType]);
 
             //return redirect()->route('payment.success')->with('success', 'Payment successful!')->with('iconPath')->with('cardType');
             return redirect()->route('payment.success')->with('success', 'Payment successful!');
         } catch (\Exception $e) { // En el caso que se haga bien la compra te redirecciona a otra pagina
-            session()->forget(['iconPath', 'cardType']); // Limpia también en caso de error
+            session(['iconPath' => 'recursos_iconos/default.png', 'cardType' => 'Genérica', 'typeError' => $e->getMessage()]);
             return redirect()->route('payment.failure')->with('error', $e->getMessage());
             // Si da fallos, redireccion a otra pagina
         }

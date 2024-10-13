@@ -51,20 +51,17 @@
                 html: `
                     <label> Tu compra ha sido completada exitosamente. </label>
                     <br>
-                    <label> Metodo de pago: <strong>"{{ session('cardType') }}"</strong> </label>`,
+                    <label> Tipo de tarjeta: "{{ session('cardType') }}" </label>`,
                 imageUrl: "{{ asset(session('iconPath')) }}", // URL de la imagen que deseas mostrar
                 imageWidth: 200, // Ajusta el ancho de la imagen
                 imageHeight: 200, // Ajusta la altura de la imagen
                 imageAlt: 'Descripción de la imagen', // Texto alternativo para la imagen
                 showConfirmButton: true,
-                timer: 5000
+                timer: 6000
             }).then(() => {
-                window.location.href = "{{ route('Shirini-e/index.php') }}";
+                //window.location.href = "{{ route('Shirini-e/index.php') }}";
+                window.location.replace("{{ route('Shirini-e/index.php') }}");
             });
-            window.history.pushState(null, null, window.location.href);
-            window.onpopstate = function() {
-                window.history.pushState(null, null, window.location.href);
-            };
         }
 
         setTimeout(function() {

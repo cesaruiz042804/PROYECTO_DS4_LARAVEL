@@ -4,6 +4,7 @@ use App\Http\Controllers\PaginacionController;
 use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Order;
 /* 
 Sintaxis para hacer las rutas: 
 - Nombre de la ruta o url que se va a poner en el buscador (El nombre que le quieras dar, y el mismo saldra arriba en el buscador)
@@ -59,4 +60,11 @@ Route::get('/Helados/Mani.php', [PaginacionController::class, 'call_mani'])->nam
 
 // Ruta para crear cuenta de registro
 
-Route::get('/Inicio-Sesion/Registro.php', [PaginacionController::class, 'call_crear_cuenta'])->name('/Inicio-Sesion/Registro'); 
+Route::get('/Inicio-Sesion/Registro.php', [PaginacionController::class, 'call_crear_cuenta'])->name('/Inicio-Sesion/Registro');
+
+// Ruta para el método de carga
+
+//Route::get('/loading.php', [PaginacionController::class, 'call_loading'])->name('/loading');
+//Route::post('/loading.php', [PaymentController::class, 'checkPaymentStatus'])->name('/loading');
+//Route::get('/error.php', [PaginacionController::class, 'call_error'])->name('/error');
+

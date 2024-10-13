@@ -1,0 +1,75 @@
+.main-container-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(73, 70, 70);
+    flex-direction: column;
+    min-height: 100vh; 
+    margin-top: 300px;
+    font-family: 'Saira';
+  }
+
+:root{
+    --brown_: #671F1F;
+    --pink_:#EF83D180;
+    --celeste_: #D6E9FF;
+    --menta_: #608F80;
+    --chocolate_:#8F620A;
+    --cereza_:#A01927;
+    --Amarillo_:#CAC326;
+}
+
+.cubo,
+.container-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cubo {
+    height: 60%;
+    transform-style: preserve-3d;
+    animation: rotar 2s linear infinite;
+}
+
+.cubo>label:nth-child(1) {
+    position: relative;
+    transform-style: preserve-3d;
+    font-size: 60px;
+    color: var(--chocolate_);
+    text-shadow: 0 0 10px var(--celeste_),
+        0 0 20px var(--celeste_),
+        0 0 50px var(--celeste_);
+}
+
+.container-loading {
+    height: 40%;
+    text-shadow: 0 0 10px var(--celeste_),
+    0 0 20px var(--celeste_),
+    0 0 40px var(--celeste_);
+}
+
+@keyframes rotar {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.loading h2,
+.loading p {
+    text-align: center;
+    font-family: Arial;
+    font-weight: 100;
+    letter-spacing: 2px;
+    color: var(--chocolate_); 
+}
+
+.loading p{
+    font-weight: bold;
+}
+
