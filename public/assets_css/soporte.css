@@ -1,0 +1,344 @@
+body,header,main,footer{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Saira';
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(200deg,  #b3e5fc 0%, #517d76 100%);
+    overflow: hidden;
+}
+/*Start Fonts and variables for colors*/
+@font-face {
+    font-family: 'Poppins'; /* Nombre de la fuente */
+    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Poppins\Poppins-ExtraBold.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Saira'; /* Nombre de la fuente */
+    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-Regular.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SairaE'; /* Nombre de la fuente */
+    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-ExtraBold.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --brown_: #671F1F;
+    --pink_:#EF83D180;
+    --celeste_: #D6E9FF
+}
+/*End fonts and variables for colors*/
+
+/*Header section start----------------*/
+
+header{
+    position: absolute; /*El main ocupa 100dvh y el header esta absoluto para que el fondo forme parte tambien del fondo del header gracias al z-index*/
+    width:100%;
+    height: 15dvh;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.header__nav{
+    display: flex;
+    justify-content: space-between; /* Centramos los elementos en el eje horizontal */
+    align-items: center; /* Centramos los elementos en el eje vertical */
+    margin: 20px 20px;
+}
+
+.header__nav img{
+    height: 50px;
+    width: 50px;
+}
+
+.header-a{
+    flex: 1;
+    margin-left:10px ;
+    font-size: 32px;
+    color: var(--brown_);
+    text-decoration: none;
+}
+
+.header__nav-list{
+    display: flex;
+    flex: 1;
+    justify-content: end;
+}
+
+.header__nav-list li{
+    list-style: none;
+    margin: 5px 20px 0 20px;
+}
+
+.nav__list-a{
+    text-decoration: none;
+    color: black;
+}
+
+/*Psudoe-clases para los a del header--------inicio*/
+.nav__list-a:active{
+    color:#0001
+}
+
+.nav__list-a:visited{
+    color: black;
+}
+
+.nav__list-a:hover{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    background-color: #3331;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.nav__list-a:focus{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.header-a:visited{
+    color: var(--brown_);
+}
+/*Psudoe-clases para los a del header--------final*/
+/*Section header end------------------*/
+
+/*Seccion main---------------Start*/
+main{
+    height: 100dvh;
+    overflow: hidden;
+}
+/*Section main---------------End*/
+
+/*Seccion footer---------------Inicio*/
+footer{
+    height: 221px;
+    background-image: linear-gradient(to right, var(--celeste_), #D847C0);
+    box-shadow: 0px -4px 4px #00000025;
+}
+
+footer p{
+    font-size: 24px;
+    padding: 0 0 0 20px;
+}
+
+.Footer__Contenedor{
+    width: 30%;
+    padding: 0 0 0 20px;
+}
+
+.Footer__Contenedor a{
+    color: black;
+    text-decoration: none;
+}
+.Contenedor__Items1{
+    font-size: 15px;
+    display: inline-block;
+    width: 150px;
+    padding: 0;
+    align-items: center;
+}
+
+.Contenedor__Items2{
+    font-size: 15px;
+    display: inline-block;
+    width: 200px;
+    padding: 0;
+    align-items: center;
+}
+
+/*Psudoe-clases para el button del main-------final*/
+.Contenedor__Items1 a:active{
+    color: #0001;
+}
+
+.Contenedor__Items1 a:visited{
+    color: black;
+}
+
+.Contenedor__Items1 a:hover{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.Contenedor__Items1 a:focus{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.Contenedor__Items2 a:active{
+    color: #0001;
+}
+
+.Contenedor__Items2 a:visited{
+    color: black;
+}
+
+.Contenedor__Items2 a:hover{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.Contenedor__Items2 a:focus{
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.preguntas-respuestas{
+    
+    margin-top: 10%;
+    width: 500px;
+    height: 400px;
+    border-radius: 15px;
+    margin-left: 120px;
+    font-size: 12px;
+    overflow-y: scroll;
+    
+}
+
+.numero1-{
+    
+    align-content: center;
+    background-color: white;
+    width: 500px;
+    height: 400px;
+    border-radius: 15px;
+    font-size: 12px;
+ 
+}
+.numero1- p{
+ 
+    width: 400px;
+    height: 300px;
+    border-radius: 15px;
+    margin-left: 30px;
+    font-size: 12px;
+    
+}
+.numero1- h1{
+    
+   text-align: center;
+}
+
+.numero2-{
+    margin-top: 5%;
+    align-content: center;
+    background-color: white;
+    width: 500px;
+    height: 400px;
+    border-radius: 15px;
+    font-size: 12px;
+ 
+}
+.numero2- p{
+    
+    margin-top: 5%;
+    width: 400px;
+    height: 300px;
+    border-radius: 15px;
+    margin-left: 30px;
+    font-size: 12px;
+
+}
+
+
+
+
+.terminos-condiciones{
+      
+    margin-top: -32%;
+    width: 450px;
+    height: 400px;
+    border-radius: 15px;
+    margin-left: 55%;
+    font-size: 12px;
+    overflow: scroll;
+    
+    
+}
+
+.numero1{
+    align-content: center;
+    background-color: white;
+    width: 450px;
+    height: 240px;
+    border-radius: 15px;
+    font-size: 12px;
+    
+    
+}
+.numero1 p{
+    
+    margin-top: 5%;
+    width: 350px;
+    height: 300px;
+    border-radius: 15px;
+    margin-left: 30px;
+    font-size: 12px;
+
+}
+
+.numero1 h1{
+   
+    text-align: center;
+}
+
+.numero2{
+    margin-top: 5%;
+    align-content: center;
+    background-color: white;
+    width: 450px;
+    height: 200px;
+    border-radius: 15px;
+    font-size: 12px;
+ 
+}
+.numero2 p{
+    
+    margin-top: 5%;
+    width: 350px;
+    height: 300px;
+    border-radius: 15px;
+    margin-left: 30px;
+    font-size: 12px;
+
+}
+
+.numero3{
+    margin-top: 5%;
+    align-content: center;
+    background-color: white;
+    width: 450px;
+    height: 250px;
+    border-radius: 15px;
+    font-size: 12px;
+ 
+}
+.numero3 p{
+    
+    margin-top: 5%;
+    width: 350px;
+    height: 300px;
+    border-radius: 15px;
+    margin-left: 30px;
+    font-size: 12px;
+
+}
+
+/*Psudoe-clases para el footer del main-------final*/
+/*Seccion footer---------------Final*/

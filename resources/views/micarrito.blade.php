@@ -20,7 +20,7 @@
             <ul class="header__nav-list">
                 <li><a class="nav__list-a" href="{{ route('Shirini-e/index.php') }}">Inicio</a></li>
                 <li><a class="nav__list-a" href="{{ route('Productos/sabores.php') }}">Sabores</a></li>
-                <li><a class="nav__list-a" href="#">Soporte al cliente</a></li>
+                <li><a class="nav__list-a" href="{{ route('Soporte.php') }}">Soporte al cliente</a></li>
                 <li><a class="nav__list-a" href="{{ route('Productos/micarrito.php') }}">Mi carrito</a></li>
                 <li><a class="nav__list-a enlaceLogin" href="{{ route('Iniciar-Sesion.php') }}">Iniciar Sesión</a></li>
             </ul>

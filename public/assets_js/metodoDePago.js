@@ -44,7 +44,7 @@ function displayNoLoading(){
 function alertMessage(message) {
   Swal.fire({
     icon: 'warning',
-    title: 'warning!',
+    title: 'Warning!',
     html: message,
     showConfirmButton: true,
     timer: 3000
@@ -53,37 +53,3 @@ function alertMessage(message) {
   });
 }
 
-async function validarEmailZeroBounce(email) {
-  const apiKey = 'NSC45G0UE4YNv36cON5SXwnE68Qc78uvUkv6PZh3';
-  const apiUrl = 'https://api.bouncer.com/v1/emails';
-
-  try {
-    const response = await axios.post(apiUrl, {
-      api_key: apiKey,
-      email: email
-    });
-
-    if (response.status === 200) {
-      const data = response.data;
-      if (data.status === 'valid') {
-        console.log('El correo es válido');
-      } else {
-        alertMessage('El correo es inválido');
-        console.log('El correo es inválido');
-      }
-    } else {
-      console.error('Error en la respuesta de la API:', response.status, response.statusText);
-    }
-  } catch (error) {
-    if (error.response) {
-      // El servidor respondió con un código de estado fuera del rango 2xx
-      console.error('Error en la respuesta de la API:', error.response.status, error.response.data);
-    } else if (error.request) {
-      // La solicitud fue hecha pero no se recibió respuesta
-      console.error('No se recibió respuesta del servidor:', error.request);
-    } else {
-      // Algo sucedió al configurar la solicitud que provocó un error
-      console.error('Error al configurar la solicitud:', error.message);
-    }
-  }
-}

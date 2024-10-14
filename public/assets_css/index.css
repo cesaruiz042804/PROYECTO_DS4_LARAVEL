@@ -23,7 +23,7 @@
 :root{
     --brown_: #671F1F;
     --pink_:#EF83D180;
-    --celeste_: #D6E9FF
+    --celeste_: #d6e9ff;
 }
 /*End fonts and variables for colors*/
 
@@ -39,6 +39,7 @@ body{
     flex-direction: column;
     background-image: radial-gradient(circle at 100% 100%, var(--celeste_), transparent);
 }
+
 /*Seccion header---------------Inicio*/
 header{
     position: absolute; /*El main ocupa 100dvh y el header esta absoluto para que el fondo forme parte tambien del fondo del header gracias al z-index*/
@@ -61,16 +62,24 @@ header{
     margin: 20px 20px;
 }
 
+.header__nav{
+    display: flex; 
+    justify-content: space-between; /* Centramos los elementos en el eje horizontal */
+    align-items: center; /* Centramos los elementos en el eje vertical */
+    margin: 20px 20px;
+}
+
 .header__nav img{
     height: 60px;
     width: 60px;
 }
 
-.header-a img{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    margin-left: 1%;
+.header-a{
+    flex: 1;
+    margin-left:10px;
+    font-size: 32px;
+    color: var(--brown_);
+    text-decoration: none;
 }
 
 .header__nav-list{
@@ -108,10 +117,8 @@ header{
     border-bottom: 1px solid black;
 }
 
-.nav__list-a:focus{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
+.enlaceLogin:hover{
+    border: none;
 }
 
 .header-a:visited{
@@ -207,6 +214,7 @@ main button a:focus{
 
 /*Seccion footer---------------Inicio*/
 footer{
+    flex: 1;
     height: 221px;
     background-image: linear-gradient(to right, var(--celeste_), #D847C0);
     box-shadow: 0px -4px 4px #00000025;
@@ -218,6 +226,7 @@ footer p{
 }
 
 .Footer__Contenedor{
+    margin-bottom: 20px;
     width: 30%;
     padding: 0 0 0 20px;
 }
@@ -280,8 +289,8 @@ footer p{
     /* Estilos para pantallas de 768px o menos */
     /*Header Section-------Start*/
     header{
-        width: 100dvw;
-        height: 10vh;
+        width: 100vw;
+        height: 11vh;
         justify-content: space-between;
         overflow: hidden;
         align-content: center;
@@ -292,17 +301,22 @@ footer p{
     }
 
     .transparent{
-        background-color: transparent;
+        background-color: transparent;  
         box-shadow: none;
     }
 
     .quitar{
         display: none;
     }
+
     #MenuHamburguesa{
         display: block;
         background-color: transparent;
         border: none;
+        margin-right: 10%;
+        flex: 1;
+        text-align: right;
+    
     }
 
     #MenuHamburguesa img{
@@ -312,22 +326,13 @@ footer p{
         height: 40px;
     }
 
-    #MenuHamburguesa:active{
-        transform: scale(1.1);
-    }
-
     .header-a{
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        width: 50px;
-        height: 50px;
+        display: block;
+        font-size: 1rem;
     }
 
-    .header-a img{
-        position: relative;
-        width: 50px;
-        height: 50px;
+    .oculto{
+        display: none;
     }
 
     .header__nav-list{
@@ -341,6 +346,7 @@ footer p{
         position: fixed;
         z-index: 1000;
         transition: all 0.3s ease-in-out;
+        padding-top: 6%;
     }
 
     .header__nav-listSecundario{
@@ -351,14 +357,11 @@ footer p{
         flex-direction: column;
         justify-content: space-between;
         text-align: center;
-        background-color: aliceblue;
     }
 
     .Header__NavegadorSecundario.active{
         display: block;
-        header{
-            background-color: transparent;
-        }
+        background-color: var(--celeste_);
     }
 
     .header__nav-listSecundario li{
@@ -374,6 +377,7 @@ footer p{
         font-size: 25px;
     }
     /*Header Section-------End*/
+
     main{
         height: 100vh;
         width: 100%;
@@ -456,10 +460,3 @@ footer p{
 
   }
   /*Adaptacion a movil---------------End*/
-
-
-
-
-
-
-

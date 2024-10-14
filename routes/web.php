@@ -4,6 +4,10 @@ use App\Http\Controllers\PaginacionController;
 use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailSender;
+
+
 use App\Models\Order;
 /* 
 Sintaxis para hacer las rutas: 
@@ -30,6 +34,12 @@ Route::get('/Productos/sabores.php', [PaginacionController::class, 'call_sabores
 Route::get('/Productos/micarrito.php', [PaginacionController::class, 'call_micarrito'])->name('Productos/micarrito.php'); // Archivo micarrito
 
 Route::get('/Iniciar-Sesion.php', [PaginacionController::class, 'call_iniciar_sesion'])->name('Iniciar-Sesion.php'); // Archivo micarrito
+
+Route::get('/Soporte.php', [PaginacionController::class, 'call_soporte'])->name('Soporte.php');
+
+// Ruta para crear cuenta de registro
+
+Route::get('/Inicio-Sesion/Registro.php', [PaginacionController::class, 'call_crear_cuenta'])->name('/Inicio-Sesion/Registro');
 
 // Rutas para cuando se de click en "pagar ahora", este envie el valor a metodo post, y luego llamar la vista con elo metodo get usando session
 // Se usa ajax para pasar el dato al controlador, luego se envía un json para confirmar que se hizo
@@ -58,13 +68,7 @@ Route::get('/Helados/ChocoWest.php', [PaginacionController::class, 'call_chocoWe
 Route::get('/Helados/Cookie', [PaginacionController::class, 'call_cookie'])->name('Helados/Cookie'); 
 Route::get('/Helados/Mani.php', [PaginacionController::class, 'call_mani'])->name('Helados/Mani'); 
 
-// Ruta para crear cuenta de registro
+// Ruta para confirmar los correos electrónicos
+Route::post('/verify-email-domain', [PaymentController::class, 'verifyEmailDomain'])->name('verify-email-domain'); 
 
-Route::get('/Inicio-Sesion/Registro.php', [PaginacionController::class, 'call_crear_cuenta'])->name('/Inicio-Sesion/Registro');
-
-// Ruta para el método de carga
-
-//Route::get('/loading.php', [PaginacionController::class, 'call_loading'])->name('/loading');
-//Route::post('/loading.php', [PaymentController::class, 'checkPaymentStatus'])->name('/loading');
-//Route::get('/error.php', [PaginacionController::class, 'call_error'])->name('/error');
-
+// Ruta para enviar los mail

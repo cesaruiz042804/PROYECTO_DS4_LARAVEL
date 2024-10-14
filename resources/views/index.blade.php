@@ -9,12 +9,13 @@
 <body>
     <header>
         <nav class="header__nav">
-            <button id="MenuHamburguesa"><img src="recursos_index/Icon.png" alt="Menu" title="Menu"></button>
-            <a class="header-a" href="#"><img src="../recursos_index/Logo Shirine.png" alt="Logo Shirini-E" title="SHIRINI-E" id="ImgLogo"</a>
+            <img src="{{ asset('recursos_index/Logo Shirine.png') }}" alt="Logo Shirini-E" title="SHIRINI-E">
+            <a class="header-a" href="{{ route('Shirini-e/index.php') }}">SHIRINI-E</a>
+            <button id="MenuHamburguesa"><img src="{{ asset('recursos_index/Icon.png') }}" alt="Menu" title="Menu"></button>
             <ul class="header__nav-list">
                 <li><a class="nav__list-a" href="{{ route('Shirini-e/index.php') }}">Inicio</a></li>
                 <li><a class="nav__list-a" href="{{ route('Productos/sabores.php') }}">Sabores</a></li>
-                <li><a class="nav__list-a" href="#">Soporte al cliente</a></li>
+                <li><a class="nav__list-a" href="{{ route('Soporte.php') }}">Soporte al cliente</a></li>
                 <li><a class="nav__list-a" href="{{ route('Productos/micarrito.php') }}">Mi carrito</a></li>
                 <li><a class="nav__list-a enlaceLogin" href="{{ route('Iniciar-Sesion.php') }}">Iniciar Sesión</a></li>
             </ul>

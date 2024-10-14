@@ -26,6 +26,10 @@ class PaginacionController extends Controller
         return view('inicioSesion');
     }
 
+    public function call_soporte(){
+        return view('soporte');
+    }
+
     // Hasta aqui las vistas de header
 
     public function call_vainilla()

@@ -7,7 +7,10 @@
     <title>Proceso de Pago</title>
     <link rel="stylesheet" href="{{ asset('assets_css/metodoDePago.css') }} ">
     <link rel="stylesheet" href="{{ asset('assets_css/load.css') }} ">
+    <!-- Estilo para el div del loading que esta oculto-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 </head>
 
 <body>
@@ -18,7 +21,7 @@
             <ul class="header__nav-list">
                 <li><a class="nav__list-a" href="{{ route('Shirini-e/index.php') }}">Inicio</a></li>
                 <li><a class="nav__list-a" href="{{ route('Productos/sabores.php') }}">Sabores</a></li>
-                <li><a class="nav__list-a" href="#">Soporte al cliente</a></li>
+                <li><a class="nav__list-a" href="{{ route('Soporte.php') }}">Soporte al cliente</a></li>
                 <li><a class="nav__list-a" href="{{ route('Productos/micarrito.php') }}">Mi carrito</a></li>
                 <li><a class="nav__list-a enlaceLogin" href="{{ route('Iniciar-Sesion.php') }}">Iniciar Sesión</a></li>
             </ul>
@@ -36,6 +39,7 @@
                 method="POST">
                 @csrf
                 <input type="hidden" name='stripeToken' id='stripe-token-id'>
+                <input type="hidden" name='amount' id='amount' value="{{ $valor }}" style="display: none;"> <!-- Esto es para guardar el precio de la compra -->
                 <!-- Esto es importante, ya que sin eso no se puede crear el token-->
                 <h3>Configura tu tarjeta de crédito o débito</h3>
                 <div>
@@ -56,13 +60,13 @@
                 <div>
                     <label for="NombreTarjeta">Títular de la tarjeta</label>
                     <div>
-                        <input type="text" placeholder="Nombre como aparece en la tarjeta" id="NombreTarjeta">
+                        <input type="text" placeholder="Nombre como aparece en la tarjeta" name="NombreTarjeta" id="NombreTarjeta">
                     </div>
                 </div>
                 <div>
                     <label for="Correo">Correo eléctronico</label>
                     <div>
-                        <input type="email" placeholder="Correo para enviar factura" id="Correo">
+                        <input type="text" placeholder="Correo para enviar factura" name="Correo" id="Correo">
                     </div>
                 </div>
                 <p>Al hacer clic en el botón «Realizar Pedido», aceptas nuestros Términos de uso y nuestra Declaración
@@ -73,7 +77,7 @@
                         <a href = '{{ route('Productos/micarrito.php') }}'>{{ $valor }} $ cambiar</a>
                     </div>
                     <div class="InfoTarjeta-Pagar">
-                        <button type="submit" onclick="createToken()" class="btnForm">Realizar Pedido</button>
+                        <button onclick="createToken()" class="btnForm">Realizar Pedido</button>
                     </div>
                 </div>
             </form>
@@ -88,9 +92,6 @@
                     <p>Cargando...</p>
                 </div>
             </div>
-        </div>
-        <div class="alert-error" style="display: none">
-
         </div>
     </main>
 
@@ -126,7 +127,8 @@
     </footer>
 
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="{{ asset('assets_js/metodoDePago.js') }}"></script>
 
     <script>
@@ -170,42 +172,49 @@
         cardCvcElement.mount('#CVV');
         cardExpiryElement.mount('#FechaVencimiento');
 
-        //console.log(verificarElementosStripeVacios());
-
         const formulario = document.querySelector('.ContenedorTarjeta-InfoTarjetas');
+        let formSend = false;
+        let emailSend = false;
 
         formulario.addEventListener('submit', (event) => {
             event.preventDefault();
-            createToken();
+            if (!formSend) { // Esto evita que se haga máss de un envío de datos del formulario
+                createToken();
+            }
         });
 
         function createToken() {
+            formSend = true; // Esto evita que se haga máss de un envío de datos al servidor
+            console.log('CreateToken');
             if (verificarElementosStripeVacios()) {
                 alertMessage('Por favor, llena todos los campos.');
-                console.log('Por favor, llena todos los campos. (createtoken)');
             } else {
-                // Crea el token usando los elementos de la tarjeta
-                stripe.createToken(cardNumberElement).then(function(result) {
-                    if (result.error) { // Manejar error
-                        //alert(result.error.message); // Mensaje de error
-                        console.log('result.error');
-                        //return; // Salir si hay error
-                        //window.location.href = "{{ route('payment.failure') }}";
-                        //document.getElementById('checkout-form').submit();
-                        alertMessage(result.error.message); // Muestra un mensaje de error (se hace uso de librería de alerta de animación)
-                    }
-                    
-                    //console.log(result.token); // Esto es algo que nunca se debe mostrar
-                    if (result.token) { // Si se creó el token exitosamente
-                        displayLoading(); // Esto hace que se quite el footer, header y así hace que se muestre los mensajes de las tarjetas
-                        document.getElementById("stripe-token-id").value = result.token.id; // Aquí es donde se envía la clave del id del token
-                        // Sin esto no funcionaría esto
-                        console.log('Formulario enviado');
-                        document.getElementById('checkout-form').submit(); // Envía el formulario
+                
+                validateEmail().then(isValid => {
+                    if (isValid) {
+                        stripe.createToken(cardNumberElement).then(function(
+                            result) { // Crea el token usando los elementos de la tarjeta
+                            if (result.error) { // Manejar error
+                                alertMessage(result.error
+                                    .message
+                                    ); // Muestra un mensaje de error (se hace uso de librería de alerta de animación)
+                            }
+
+                            if (result.token) { // Si se creó el token exitosamente
+                                displayLoading
+                                    (); // Esto hace que se quite el footer, header y así hace que se muestre los mensajes de las tarjetas
+                                document.getElementById("stripe-token-id").value = result.token
+                                    .id; // Aquí es donde se envía la clave del id del token, sin esto no funcionaría esto
+                                console.log('Formulario enviado');
+                                document.getElementById('checkout-form')
+                                    .submit(); // Envía el formulario
+                            }
+                        });
                     }
                 });
             }
         }
+
 
         let cardNumberEmpty = true;
         let cardCvcEmpty = true;
@@ -215,61 +224,71 @@
 
         cardNumberElement.on('change', function(event) {
             cardNumberEmpty = event.empty;
-            //verificarElementosStripeVacios();
         });
 
         cardCvcElement.on('change', function(event) {
             cardCvcEmpty = event.empty;
-            //verificarElementosStripeVacios();
         });
 
         cardExpiryElement.on('change', function(event) {
             cardExpiryEmpty = event.empty;
-            //verificarElementosStripeVacios();
         });
 
         document.getElementById('NombreTarjeta').addEventListener('change', function(event) {
             nombreEmpty = event.target.value.trim() === '';
-            //verificarElementosStripeVacios();
         });
 
         document.getElementById('Correo').addEventListener('change', function(event) {
             emailEmpty = event.target.value.trim() === '';
-            //verificarElementosStripeVacios();
         });
 
-        function verificarElementosStripeVacios() {
+        function verificarElementosStripeVacios() { // Verifica si los input están vacíos
             if (cardNumberEmpty || cardCvcEmpty || cardExpiryEmpty || nombreEmpty || emailEmpty) {
                 console.log('Campos vacios');
                 return true;
-            } else if(validarEmailZeroBounce(document.getElementById('Correo').value.trim())){
-                console.log('correo inválido')
             } else {
                 console.log('Todos los campos están llenos.');
                 return false;
             }
         }
-        /*
-                                       const nombre = document.getElementById('NombreTarjeta').value;
-                                       const email = document.getElementById('Correo').value;
-                       
-                                       const formData = new FormData();
-                                       formData.append("precio", {{ $valor }});
-                                       formData.append("nombre", nombre);
-                                       formData.append("email", correo);
-                       
-                                       // Enviar el formulario usando fetch
-                                       fetch("{{ route('stripe.Payment') }}", {
-                                           method: 'POST',
-                                           body: formData
-                                       }).then(response => {
-                                           return response.json();
-                                       }).then(data => {
-                                           console.log(data); // Manejar la respuesta del servidor
-                                       }).catch(error => {
-                                           console.log(error); // Manejar errores
-                                       });
-                                       */
+
+        function validateEmail() {
+            return new Promise((resolve, reject) => {
+                const email = $('#Correo').val(); // Se obtiene el valor del input de correo
+
+                $.ajax({
+                    url: "{{ route('verify-email-domain') }}",
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        Correo: email // Aquí se envía el correo
+                    }),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                            'content') // Esto mantiene la seguridad de los datos enviados al servidor
+                    },
+                    success: function(data) { // Maneja la respuesta del servidor, si es válido o no
+                        if (data.valid) {
+                            console.log('Correo válido');
+                            resolve(true); // Resolvemos la promesa con true
+                        } else {
+                            alertMessage(data.message);
+                            console.log('Entra error uno')
+                            return; // Resolvemos la promesa con false
+                        }
+                    },
+                    error: function(xhr) {
+                        if (xhr.status === 422) { // Manejo de errores de validación
+                            //alertMessage(errorMessage || 'Ocurrió un error inesperado.');
+                            resolve(false); // Resolvemos la promesa con false
+                        } else {
+                            //alertMessage('Ocurrió un error inesperado. Por favor, inténtalo de nuevo.');
+                            resolve(false); // Resolvemos la promesa con false
+                        }
+                    }
+                });
+            });
+        }
 
         /*
         Funcionamiento de esto:
