@@ -4,11 +4,6 @@ use App\Http\Controllers\PaginacionController;
 use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
-use Illuminate\Support\Facades\Mail;
-use App\Mail\EmailSender;
-
-
-use App\Models\Order;
 /* 
 Sintaxis para hacer las rutas: 
 - Nombre de la ruta o url que se va a poner en el buscador (El nombre que le quieras dar, y el mismo saldra arriba en el buscador)
@@ -71,4 +66,4 @@ Route::get('/Helados/Mani.php', [PaginacionController::class, 'call_mani'])->nam
 // Ruta para confirmar los correos electrónicos
 Route::post('/verify-email-domain', [PaymentController::class, 'verifyEmailDomain'])->name('verify-email-domain'); 
 
-// Ruta para enviar los mail
+

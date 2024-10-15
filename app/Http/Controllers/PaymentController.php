@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Log;
 //use Termwind\Components\Raw;
 
 use Illuminate\Support\Facades\Mail;
-use App\Mail\EmailSender;
+use App\Jobs\jobEmailPayment; 
+
 
 class PaymentController extends Controller
 {
@@ -36,29 +37,25 @@ class PaymentController extends Controller
     {
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
-
+        
         $token = $request->input('stripeToken'); // Se obtiene el token del input que guarda el token de stripe
         
+        Log::debug($token);
         // Es necesario que los input en html tengan el atributo name para poder identificarlos en el controlador
         $name = $request->input('NombreTarjeta');
         $amount = $request->input('amount');
         $email = $request->input('Correo'); 
-        $amountDecimal = $amount;
-
-        Log::debug($name);
-        Log::debug($amount);
-        Log::debug($email);
 
         try {
             $charge = Charge::create([
-                'amount' => intval($amount), // ccentas
+                'amount' => intval($amount * 100), // Se multiplica por 100 porque amount solo recibe valores en centavos, y hacer esto sería como una conversión de dólares a centavos
                 'currency' => 'usd',
                 'source' => $token,
                 'description' => 'Test Payment',
             ]);
-
+            
             $cardType = $charge->payment_method_details->card->brand; // Obtener el tipo de tarjeta
-
+            
             $cardIcons = [ // Mapeo de iconos
                 'visa' => 'recursos_iconos/visa.png',
                 'mastercard' => 'recursos_iconos/mastercard.png',
@@ -67,19 +64,16 @@ class PaymentController extends Controller
                 'diners' => 'recursos_iconos/diners.png',
                 'default' => 'recursos_iconos/default.png',
             ];
+            
+            jobEmailPayment::dispatch($email, $name, $amount, $cardType); // Esto es para hacer el proceso de enviar correo en segundo plano
 
             session()->forget(['iconPath', 'cardType']); // Limpia también en caso de error
             $iconPath = $cardIcons[$cardType] ?? $cardIcons['default'];
 
-            //dd(compact('iconPath', 'cardType')); // Verifica los datos antes de redirigir
-            Log::debug($iconPath);
-            Log::debug($cardType);
-
             session(['iconPath' => $iconPath, 'cardType' => $cardType]);
 
-            Mail::to($email)->send(new EmailSender($name, $amountDecimal, $cardType));
+            //Mail::to($email)->send(new EmailSender($name, $amountDecimal, $cardType));
 
-            //return redirect()->route('payment.success')->with('success', 'Payment successful!')->with('iconPath')->with('cardType');
             return redirect()->route('payment.success')->with('success', 'Payment successful!');
         } catch (\Exception $e) { // En el caso que se haga bien la compra te redirecciona a otra pagina
             session(['iconPath' => 'recursos_iconos/default.png', 'cardType' => 'Genérica', 'typeError' => $e->getMessage()]);
@@ -112,7 +106,8 @@ class PaymentController extends Controller
             'aol.com',
             'zoho.com',
             'protonmail.com',
-            'mail.com'
+            'mail.com',
+            'utp.ac.pa'
         ];
         
         $domain = substr(strrchr($email, "@"), 1); // Extrae el dominio
@@ -132,5 +127,8 @@ php artisan view:clear
 php artisan config:clear
 php artisan route:clear
 php artisan cache:clear
+
+Si hace una limpieza de cache o se optimiza, se tiene que hacer todos los comandos ya que no dejará usar la API de stripe
+Es obligatorio
 
 */

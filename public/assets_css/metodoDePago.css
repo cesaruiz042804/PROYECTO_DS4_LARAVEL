@@ -15,21 +15,23 @@ body{
 /*Start Fonts and variables for colors*/
 @font-face {
     font-family: 'Poppins'; /* Nombre de la fuente */
-    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Poppins\Poppins-ExtraBold.ttf') format('woff2');
+    src: url("{{ asset('recursos_index/fonts/Poppins-Regular.ttf') }}") format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Saira'; /* Nombre de la fuente */
-    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-Regular.ttf') format('woff2');
+    /*src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-Regular.ttf') format('woff2'); */
+    src: url("{{ asset('recursos_index/fonts/Saira/static/Saira-Regular.ttf') }}") format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SairaE'; /* Nombre de la fuente */
-    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-ExtraBold.ttf') format('woff2');
+    /*src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-ExtraBold.ttf') format('woff2');*/
+    src: url("{{ asset('recursos_index/fonts/Saira/static/Saira-ExtraBold.ttf') }}") format('woff2');
     font-weight: normal;
     font-style: normal;
 } 

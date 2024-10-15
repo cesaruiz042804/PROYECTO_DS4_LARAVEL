@@ -29,7 +29,7 @@ body{
 
 @font-face {
     font-family: 'SairaE'; /* Nombre de la fuente */
-    src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-ExtraBold.ttf') format('woff2');
+    src: url("{{ asset('recursos_index/fonts/Saira/static/Saira-ExtraBold.ttf') }}") format('woff2');
     font-weight: normal;
     font-style: normal;
 } 

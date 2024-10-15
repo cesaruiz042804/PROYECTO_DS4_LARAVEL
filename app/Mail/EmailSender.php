@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -25,6 +24,17 @@ class EmailSender extends Mailable
         $this->name = $name;
     }
 
+    public function build()
+    {
+        return $this->subject('Payment Confirmation')
+            ->view('mails.email-send', [
+                'name' => $this->name,
+                'amount' => $this->amount,
+                'cardType' => $this->cardType,
+            ]);
+    }
+
+    /*
     public function envelope(): Envelope
     {
         return new Envelope(
@@ -53,4 +63,5 @@ class EmailSender extends Mailable
     {
         return [];
     }
+        */
 }
