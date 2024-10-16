@@ -8,8 +8,10 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Carbon\Carbon;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Log;
 
-class EmailSender extends Mailable
+class EmailSender extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -24,17 +26,25 @@ class EmailSender extends Mailable
         $this->name = $name;
     }
 
+    /*
     public function build()
     {
+        Log::debug("build");
+
+        $fechaActual = now();
+        //$fechaFormateada = $fechaActual->format('d/m/Y'); // Formatear la fecha en el formato dd/mm/yyyy
+
         return $this->subject('Payment Confirmation')
             ->view('mails.email-send', [
                 'name' => $this->name,
                 'amount' => $this->amount,
                 'cardType' => $this->cardType,
+                'date_actually' => $fechaActual
             ]);
     }
+            */
 
-    /*
+    
     public function envelope(): Envelope
     {
         return new Envelope(
@@ -44,17 +54,15 @@ class EmailSender extends Mailable
 
     public function content(): Content
     {
-        $fechaActual = Carbon::now();
+        $fechaActual = now();
         
-        $fechaFormateada = $fechaActual->format('d/m/Y'); // Formatear la fecha en el formato dd/mm/yyyy
-
         return new Content(
             view: 'mails/email-send',
             with: [
                 'amount' => $this->amount,
                 'cardType' => $this->cardType,
                 'name' => $this->name,
-                'date_actually' => $fechaFormateada,
+                'date_actually' => now()->format('d/m/Y')
             ]
         );
     }
@@ -63,5 +71,5 @@ class EmailSender extends Mailable
     {
         return [];
     }
-        */
+        
 }

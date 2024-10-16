@@ -172,11 +172,9 @@
             });
 
             // En esta parte se montan los elementos de la tarjeta en los div seleccionados
-            cardNumberElement.mount('#NumeroTarjeta');
-            cardCvcElement.mount('#CVV');
             cardExpiryElement.mount('#FechaVencimiento');
-
-
+            cardCvcElement.mount('#CVV');
+            cardNumberElement.mount('#NumeroTarjeta');
 
             const formulario = document.querySelector('.ContenedorTarjeta-InfoTarjetas');
             let formSend = false;

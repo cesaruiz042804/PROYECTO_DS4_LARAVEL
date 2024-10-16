@@ -95,7 +95,6 @@ class PaymentController extends Controller
         
         $email = $request->input('Correo'); // Recibe el correo
 
-        
         $allowedDomains = [ // Lista de dominios permitidos
             'gmail.com',
             'yahoo.com',

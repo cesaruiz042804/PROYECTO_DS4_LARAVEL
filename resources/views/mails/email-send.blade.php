@@ -99,7 +99,7 @@
             <p>Información sobre la compra:</p>
             <p>Número de pedido: 1 </p>
             <p>Método de pago: card {{ $cardType }}</p>
-            <p>Fecha de compra: {{ $date_actually }} </p>
+            <p>Fecha de compra: {{ $date_actually }}</p>
             <p>Total pagado: {{ $amount }}$</p>
 
             <a href="#" class="btn">Visitar nuestro sitio</a>
