@@ -42,75 +42,6 @@ body{
 
 /*Header section start----------------*/
 
-header{
-    position: absolute; /*El main ocupa 100dvh y el header esta absoluto para que el fondo forme parte tambien del fondo del header gracias al z-index*/
-    width:100%;
-    height: 15dvh;
-    z-index: 100;
-    overflow: hidden;
-}
-
-.header__nav{
-    display: flex;
-    justify-content: space-between; /* Centramos los elementos en el eje horizontal */
-    align-items: center; /* Centramos los elementos en el eje vertical */
-    margin: 20px 20px;
-}
-
-.header__nav img{
-    height: 50px;
-    width: 50px;
-}
-
-.header-a{
-    flex: 1;
-    margin-left:10px ;
-    font-size: 32px;
-    color: var(--brown_);
-    text-decoration: none;
-}
-
-.header__nav-list{
-    display: flex;
-    flex: 1;
-    justify-content: end;
-}
-
-.header__nav-list li{
-    list-style: none;
-    margin: 5px 20px 0 20px;
-}
-
-.nav__list-a{
-    text-decoration: none;
-    color: black;
-}
-
-/*Psudoe-clases para los a del header--------inicio*/
-.nav__list-a:active{
-    color:#0001
-}
-
-.nav__list-a:visited{
-    color: black;
-}
-
-.nav__list-a:hover{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    background-color: #3331;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.nav__list-a:focus{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.header-a:visited{
-    color: var(--brown_);
-}
 /*Psudoe-clases para los a del header--------final*/
 /*Section header end------------------*/
 
@@ -122,26 +53,7 @@ main{
 /*Section main---------------End*/
 
 /*Seccion footer---------------Inicio*/
-footer{
-    height: 221px;
-    background-image: linear-gradient(to right, var(--celeste_), #D847C0);
-    box-shadow: 0px -4px 4px #00000025;
-}
 
-footer p{
-    font-size: 24px;
-    padding: 0 0 0 20px;
-}
-
-.Footer__Contenedor{
-    width: 30%;
-    padding: 0 0 0 20px;
-}
-
-.Footer__Contenedor a{
-    color: black;
-    text-decoration: none;
-}
 .Contenedor__Items1{
     font-size: 15px;
     display: inline-block;
@@ -342,3 +254,4 @@ footer p{
 
 /*Psudoe-clases para el footer del main-------final*/
 /*Seccion footer---------------Final*/
+

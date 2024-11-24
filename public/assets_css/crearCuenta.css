@@ -53,93 +53,6 @@ header{
     z-index: 100;
 }
 
-#MenuHamburguesa{
-    display: none;
-}
-
-.Header__NavegadorSecundario{
-    display: none;
-}
-
-.header__nav{
-    display: flex;
-    justify-content: space-between; /* Centramos los elementos en el eje horizontal */
-    margin: 20px 20px;
-}
-
-.header__nav{
-    display: flex; 
-    justify-content: space-between; /* Centramos los elementos en el eje horizontal */
-    align-items: center; /* Centramos los elementos en el eje vertical */
-    margin: 20px 20px;
-}
-
-.header__nav img{
-    height: 50px;
-    width: 50px;
-}
-
-.header-a{
-    flex: 1;
-    margin-left:10px;
-    font-size: 32px;
-    color: var(--brown_);
-    text-decoration: none;
-}
-
-.header-a img{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    margin-left: 1%;
-}
-
-.header__nav-list{
-    display: flex;
-    flex: 1;
-    justify-content: end;
-}
-
-.header__nav-list li{
-    list-style: none;
-    margin: 5px 20px 0 20px;
-}
-
-.nav__list-a{
-    text-decoration: none;
-    color: black;
-}
-
-.enlaceLogin{
-    background-color: var(--pink_);
-    padding: 5px 20px;
-    border-radius: 15px;
-}
-
-/*Psudoe-clases para los a del header--------inicio*/
-.nav__list-a:active{
-    color:#0001
-}
-
-.nav__list-a:visited{
-    color: black;
-}
-
-.nav__list-a:hover{
-    border-bottom: 1px solid black;
-}
-
-.enlaceLogin:hover{
-    border: none;
-}
-
-.header-a:visited{
-    color: var(--brown_);
-}
-/*Psudoe-clases para los a del header--------final*/
-/*Section header end------------------*/
-
-
 /*Seccion main---------------Start*/
 main{
     height: 100dvh;
@@ -211,7 +124,7 @@ main{
     border: none;
 }
 
-.InfoTarjeta-Pagar{
+.ContenedroTarjeta-BotonesDePagar button {
     display: flex;
     color: black;
     background-color: var(--pink_);
@@ -224,7 +137,6 @@ main{
     font-size: inherit;
     text-decoration: none;
 }
-
 
 /*Psudoe-clases para el main-------start*/
 
@@ -257,182 +169,8 @@ main{
 /*Psudoe-clases para el footer del main-------final*/
 /*Seccion Main-----------------End*/
 
-
-/*Seccion footer---------------Inicio*/
-footer{
-    height: 221px;
-    background-image: linear-gradient(to right, var(--celeste_), #D847C0);
-    box-shadow: 0px -4px 4px #00000025;
-}
-
-footer p{
-    font-size: 24px;
-    padding: 0 0 0 20px;
-}
-
-.Footer__Contenedor{
-    width: 30%;
-    padding: 0 0 0 20px;
-}
-
-.Footer__Contenedor a{
-    color: black;
-    text-decoration: none;
-}
-.Contenedor__Items1{
-    font-size: 15px;
-    display: inline-block;
-    width: 150px;
-    padding: 0;
-    align-items: center;
-}
-
-.Contenedor__Items2{
-    font-size: 15px;
-    display: inline-block;
-    width: 200px;
-    padding: 0;
-    align-items: center;
-}
-
-/*Psudoe-clases para el footer-------inicio*/
-.Contenedor__Items1 a:active{
-    color: #0001;
-}
-
-.Contenedor__Items1 a:visited{
-    color: black;
-}
-
-.Contenedor__Items1 a:hover{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.Contenedor__Items1 a:focus{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.Contenedor__Items2 a:active{
-    color: #0001;
-}
-
-.Contenedor__Items2 a:visited{
-    color: black;
-}
-
-.Contenedor__Items2 a:hover{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.Contenedor__Items2 a:focus{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-/*Psudoe-clases para el footer-------final*/
-/*Seccion footer---------------Final*/
-
-
-
 /*Adaptacion a movil---------------Start*/
 @media (max-width: 768px) {
-    /* Estilos para pantallas de 768px o menos */
-    /*Header Section-------Start*/
-    header{
-        width: 100vw;
-        height: 11vh;
-        justify-content: space-between;
-        overflow: hidden;
-        align-content: center;
-        z-index: 1001;
-        position: fixed;
-        background-color: #fff;
-        box-shadow: 0 2px 2px #0002;
-    }
-
-    .transparent{
-        background-color: transparent;  
-        box-shadow: none;
-    }
-
-    .quitar{
-        display: none;
-    }
-
-    #MenuHamburguesa{
-        display: block;
-        background-color: transparent;
-        border: none;
-        margin-right: 10%;
-        flex: 1;
-        text-align: right;
-    
-    }
-
-    #MenuHamburguesa img{
-        position: absolute;
-        top: 30%;
-        width: 40px;
-        height: 40px;
-    }
-
-    .header-a{
-        display: block;
-        font-size: 1rem;
-    }
-
-    .oculto{
-        display: none;
-    }
-
-    .header__nav-list{
-        display: none;
-    }
-    
-    .Header__NavegadorSecundario{
-        height: 100%;
-        width: 100dvw;
-        background-color: var(--celeste_);
-        position: fixed;
-        z-index: 1000;
-        transition: all 0.3s ease-in-out;
-        padding-top: 6%;
-    }
-
-    .header__nav-listSecundario{
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        text-align: center;
-    }
-
-    .Header__NavegadorSecundario.active{
-        display: block;
-        background-color: var(--celeste_);
-    }
-
-    .header__nav-listSecundario li{
-        flex: 1;
-        align-content: center;
-        list-style: none;
-    }
-
-    .navSecundario__list-a
-    {
-        color: var(--brown_);
-        text-decoration: none;
-        font-size: 25px;
-    }
-    /*Header Section-------End*/
 
     /*Main section---------start*/
     .Main__ContenedorTarjeta{

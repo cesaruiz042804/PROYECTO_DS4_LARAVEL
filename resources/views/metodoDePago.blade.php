@@ -11,23 +11,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://js.stripe.com/v3/"></script>
+    <link rel="shortcut icon" href="{{ asset('recursos_index/Logo Shirine.png') }}">
 
 </head>
 
 <body>
-    <header>
-        <nav class="header__nav">
-            <img src="{{ asset('recursos_index/Logo Shirine.png') }}" alt="Logo Shirini-E" title="SHIRINI-E">
-            <a class="header-a" href="{{ route('Shirini-e/index.php') }}">SHIRINI-E</a>
-            <ul class="header__nav-list">
-                <li><a class="nav__list-a" href="{{ route('Shirini-e/index.php') }}">Inicio</a></li>
-                <li><a class="nav__list-a" href="{{ route('Productos/sabores.php') }}">Sabores</a></li>
-                <li><a class="nav__list-a" href="{{ route('Soporte.php') }}">Soporte al cliente</a></li>
-                <li><a class="nav__list-a" href="{{ route('Productos/micarrito.php') }}">Mi carrito</a></li>
-                <li><a class="nav__list-a enlaceLogin" href="{{ route('Iniciar-Sesion.php') }}">Iniciar Sesión</a></li>
-            </ul>
-        </nav>
-    </header>
+    
+    @include('partials.navbar')
+
     <main>
         <div class="Main__ContenedorTarjeta">
             <div class="ContenedorTarjeta-ImgTarjetas">
@@ -77,7 +68,7 @@
                     eficaz.</p>
                 <div class="ContenedroTarjeta-BotonesDePagar">
                     <div class="InfoTarjeta-Cambiar">
-                        <a href = '{{ route('Productos/micarrito.php') }}'>{{ $valor }} $ cambiar</a>
+                        <a href = '{{ route('Productos.micarrito') }}'>{{ $valor }} $ cambiar</a>
                     </div>
                     <div class="InfoTarjeta-Pagar">
                         <button onclick="createToken()" class="btnForm">Realizar Pedido</button>
@@ -97,37 +88,8 @@
             </div>
         </div>
     </main>
-
-    <footer class="footer-footer"> <!-- Le puse esto para poder eliminar completamente el footer-->
-        <p>Redes Sociales</p>
-        <div class="Footer__Contenedor">
-            <div class="Contenedor__Items1">
-                <img src="{{ asset('recursos_index/facebook.png') }}" alt="Icono Facebook" title="Icono Facebook">
-                <a href="#2">Facebook</a>
-            </div>
-            <div class="Contenedor__Items2">
-                <img src="{{ asset('recursos_index/llamada-telefonica.png') }}" alt="Icono LLamada"
-                    title="Icono Llamada">
-                <a href="#2">+507 5211-0000</a>
-            </div>
-            <div class="Contenedor__Items1">
-                <img src="{{ asset('recursos_index/instagram.png') }}" alt="Icono Instagram" title="Icono Instagram">
-                <a href="#2">Instagram</a>
-            </div>
-            <div class="Contenedor__Items2">
-                <img src="{{ asset('recursos_index/ubicacion.png') }}" alt="Icono Ubicacion">
-                <a href="#2">Avenida J Alfaro, Local 9</a>
-            </div>
-            <div class="Contenedor__Items1">
-                <img src="{{ asset('recursos_index/x.png') }}" alt="Icono X" title="Icono X">
-                <a href="#2">X</a>
-            </div>
-            <div class="Contenedor__Items2">
-                <img src="{{ asset('recursos_index/correo.png') }}" alt="Icono Correo" title="Icono Correo">
-                <a href="#2">shirinie.ice@shirinie.net</a>
-            </div>
-        </div>
-    </footer>
+        
+    @include('partials.footer')
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -220,7 +182,6 @@
                     });
                 }
             }
-
 
             let cardNumberEmpty = true;
             let cardCvcEmpty = true;

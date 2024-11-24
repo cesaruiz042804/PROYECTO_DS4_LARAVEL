@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Successful</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="shortcut icon" href="{{ asset('recursos_index/Logo Shirine.png') }}">
 
 </head>
 
@@ -59,8 +60,8 @@
                 showConfirmButton: true,
                 timer: 6000
             }).then(() => {
-                //window.location.href = "{{ route('Shirini-e/index.php') }}";
-                window.location.replace("{{ route('Shirini-e/index.php') }}");
+                //window.location.href = "{ route('Shirini-e/index.php') }}";
+                window.location.replace("{{ url('/Shirini-e/index') }}");
             });
         }
 

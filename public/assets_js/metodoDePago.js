@@ -1,8 +1,3 @@
-const menuBtn = document.getElementById('MenuHamburguesa');
-const menu = document.querySelector('.Header__NavegadorSecundario');
-const header = document.querySelector('header');
-const img = document.getElementById('ImgLogo');
-
 const elementoAOcultar = document.querySelector('.header-a');
 const elementoAOcultar2 = document.querySelector('.header__nav img');
 
@@ -19,7 +14,7 @@ menuBtn.addEventListener('click', () => {
 const loading = document.querySelector('.main-container-loading');
 const form = document.querySelector('.Main__ContenedorTarjeta');
 const headers = document.querySelector('.header__nav');
-const footer = document.querySelector('.footer-footer');
+const footer = document.querySelector('.Footer__Contenedor');
 const body = document.body;
 
 function displayLoading() {

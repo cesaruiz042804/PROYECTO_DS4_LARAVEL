@@ -50,6 +50,14 @@ header{
     overflow: hidden;
 }
 
+#MenuHamburguesa{
+    display: none;
+}
+
+.Header__NavegadorSecundario{
+    display: none;
+}
+
 .header__nav{
     display: flex;
     justify-content: space-between; /* Centramos los elementos en el eje horizontal */
@@ -261,3 +269,64 @@ footer p{
     background-color:  rgba(0, 0, 0, 0.5);
     color: white;
 }
+
+@media (max-width: 768px) {
+
+    /*Header Section-------End*/
+
+    main{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main p{
+        font-size: 15px;
+        margin: 35% 0 0 25px;
+    }
+    
+    main h1{
+        font-size: 60px;
+        margin: 0 0 0 25px;
+    }
+    
+    main h2{
+        font-size: 15px;
+        margin: 0 0 0 25px;
+    }
+    
+    main button{
+        width: 170.32px;
+        height: 55.7px;
+        margin: 0 0 0 25px;
+        margin-top: 30px;
+        background-color: pink;
+    }
+
+    .Contenedor-1{
+        height: 400px;
+        position: relative;
+        display: none;
+    }
+    
+    .Contenedor-2{
+        height: 400px;
+        position:relative;  
+        z-index: -1;
+    }
+
+    .Contenedor-2 img{
+        width: 495px;
+        height: 575px;
+        position: absolute;
+        top: -10%;
+        left: -25px;
+    }
+    /*Header Main-------Start*/
+    
+    /*Header Main-------End*/
+
+    /*Header Footer-------End*/
+
+  }

@@ -12,7 +12,7 @@ use Stripe\Charge;
 //use Predis\Client;
 use Illuminate\Support\Facades\Log;
 //use Termwind\Components\Raw;
-
+use \App\Mail\EmailSender;
 use Illuminate\Support\Facades\Mail;
 use App\Jobs\jobEmailPayment; 
 
@@ -65,14 +65,14 @@ class PaymentController extends Controller
                 'default' => 'recursos_iconos/default.png',
             ];
             
-            jobEmailPayment::dispatch($email, $name, $amount, $cardType); // Esto es para hacer el proceso de enviar correo en segundo plano
+            //jobEmailPayment::dispatch($email, $name, $amount, $cardType); // Esto es para hacer el proceso de enviar correo en segundo plano
 
             session()->forget(['iconPath', 'cardType']); // Limpia también en caso de error
             $iconPath = $cardIcons[$cardType] ?? $cardIcons['default'];
 
             session(['iconPath' => $iconPath, 'cardType' => $cardType]);
 
-            //Mail::to($email)->send(new EmailSender($name, $amountDecimal, $cardType));
+            Mail::to($email)->send(new EmailSender($name, $amount, $cardType));
 
             return redirect()->route('payment.success')->with('success', 'Payment successful!');
         } catch (\Exception $e) { // En el caso que se haga bien la compra te redirecciona a otra pagina

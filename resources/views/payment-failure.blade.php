@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@11') }}"></script>
+    <link rel="shortcut icon" href="{{ asset('recursos_index/Logo Shirine.png') }}">
 
 </head>
 

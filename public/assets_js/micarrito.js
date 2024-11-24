@@ -1,9 +1,5 @@
 const tarjetasIzquierda = document.querySelectorAll('.Carrusel-Item');
 const contenedorDerecho = document.querySelector('.CarruselDerecho');
-const menuBtn = document.getElementById('MenuHamburguesa');
-const menu = document.querySelector('.Header__NavegadorSecundario');
-const header = document.querySelector('header');
-const img = document.getElementById('ImgLogo');
 const carrito = [];
 
 const contenedorDerechoTotal = document.querySelector('.CDerecho__Total'); // Este trae el div donde se encuentra el total

@@ -50,6 +50,14 @@ header{
     overflow: hidden;
 }
 
+#MenuHamburguesa{
+    display: none;
+}
+
+.Header__NavegadorSecundario{
+    display: none;
+}
+
 .header__nav{
     display: flex;
     justify-content: space-between; /* Centramos los elementos en el eje horizontal */
@@ -263,3 +271,178 @@ footer p{
     background-color:  rgba(0, 0, 0, 0.5);
     color: white;
 }
+
+@media (max-width: 768px) {
+    /* Estilos para pantallas de 768px o menos */
+    /*Header Section-------Start*/
+    header{
+        width: 100vw;
+        height: 11vh;
+        justify-content: space-between;
+        overflow: hidden;
+        align-content: center;
+        z-index: 1001;
+        position: fixed;
+        background-color: #fff;
+        box-shadow: 0 2px 2px #0002;
+    }
+
+    .transparent{
+        background-color: transparent;  
+        box-shadow: none;
+    }
+
+    .quitar{
+        display: none;
+    }
+
+    #MenuHamburguesa{
+        display: block;
+        background-color: transparent;
+        border: none;
+        margin-right: 10%;
+        flex: 1;
+        text-align: right;
+    
+    }
+
+    #MenuHamburguesa img{
+        position: absolute;
+        top: 30%;
+        width: 40px;
+        height: 40px;
+    }
+
+    .header-a{
+        display: block;
+        font-size: 1rem;
+    }
+
+    .oculto{
+        display: none;
+    }
+
+    .header__nav-list{
+        display: none;
+    }
+    
+    .Header__NavegadorSecundario{
+        height: 100%;
+        width: 100dvw;
+        background-color: var(--celeste_);
+        position: fixed;
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+        padding-top: 6%;
+    }
+
+    .header__nav-listSecundario{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    .Header__NavegadorSecundario.active{
+        display: block;
+        background-color: var(--celeste_);
+    }
+
+    .header__nav-listSecundario li{
+        flex: 1;
+        align-content: center;
+        list-style: none;
+    }
+
+    .navSecundario__list-a
+    {
+        color: var(--brown_);
+        text-decoration: none;
+        font-size: 25px;
+    }
+    /*Header Section-------End*/
+
+    main{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main p{
+        font-size: 15px;
+        margin: 35% 0 0 25px;
+    }
+    
+    main h1{
+        font-size: 60px;
+        margin: 0 0 0 25px;
+    }
+    
+    main h2{
+        font-size: 15px;
+        margin: 0 0 0 25px;
+    }
+    
+    main button{
+        width: 170.32px;
+        height: 55.7px;
+        margin: 0 0 0 25px;
+        margin-top: 30px;
+        background-color: pink;
+    }
+
+    .Contenedor-1{
+        height: 400px;
+        position: relative;
+        display: none;
+    }
+    
+    .Contenedor-2{
+        height: 400px;
+        position:relative;  
+        z-index: -1;
+    }
+
+    .Contenedor-2 img{
+        width: 495px;
+        height: 575px;
+        position: absolute;
+        top: -10%;
+        left: -25px;
+    }
+    /*Header Main-------Start*/
+    
+    /*Header Main-------End*/
+    footer p{
+        font-size: 20px;
+        font-weight: bold;
+        padding: 0 0 0 20px;
+    }
+    
+    .Footer__Contenedor{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .Contenedor__Items1{
+        font-size: 15px;
+        display: inline-block;
+        width: 150px;
+        padding: 0;
+        align-items: center;
+    }
+    
+    .Contenedor__Items2{
+        font-size: 15px;
+        display: inline-block;
+        width: 200px;
+        padding: 0;
+        align-items: center;
+    }
+    /*Header Footer-------End*/
+
+  }

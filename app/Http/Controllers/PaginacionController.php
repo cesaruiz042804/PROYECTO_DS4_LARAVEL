@@ -34,32 +34,32 @@ class PaginacionController extends Controller
 
     public function call_vainilla()
     {
-        return view('Helados/Vainilla');
+        return view('helados.Vainilla');
     }
 
     public function call_cereza()
     {
-        return view('Helados/Cereza');
+        return view('helados.Cereza');
     }
 
     public function call_chocoMint()
     {
-        return view('Helados/ChocoMint');
+        return view('helados.ChocoMint');
     }
 
     public function call_chocoWest()
     {
-        return view('Helados/ChocoWest');
+        return view('helados.ChocoWest');
     }
 
     public function call_cookie()
     {
-        return view('Helados/Cookie');
+        return view('helados.Cookie');
     }
 
     public function call_mani()
     {
-        return view('Helados/Mani');
+        return view('helados.Mani');
     }
 
     // Hasta aquí las vistas de los sabores de helado

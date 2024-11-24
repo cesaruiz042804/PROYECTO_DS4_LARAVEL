@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PaginacionController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /* 
@@ -21,25 +22,29 @@ Sintaxis para hacer las rutas:
 // Esta parte es para los link del header (Se encuentran todas las páginas)
 
 Route::get('/', function () {
+    return redirect()->route('index');
+})->name('index'); // Archivo index (página principal)
+
+Route::get('/index', function () {
     return view('index');
-})->name('Shirini-e/index.php'); // Archivo index (página principal)
+})->name('index'); // Archivo index (página principal)
 
-Route::get('/Productos/sabores.php', [PaginacionController::class, 'call_sabores'])->name('Productos/sabores.php'); // Archivo sabores
+Route::get('/productos/sabores', [PaginacionController::class, 'call_sabores'])->name('Productos.sabores'); // Archivo sabores
 
-Route::get('/Productos/micarrito.php', [PaginacionController::class, 'call_micarrito'])->name('Productos/micarrito.php'); // Archivo micarrito
+Route::get('/productos/micarrito', [PaginacionController::class, 'call_micarrito'])->name('Productos.micarrito'); // Archivo micarrito
 
-Route::get('/Iniciar-Sesion.php', [PaginacionController::class, 'call_iniciar_sesion'])->name('Iniciar-Sesion.php'); // Archivo micarrito
+Route::get('/iniciar-sesion', [PaginacionController::class, 'call_iniciar_sesion'])->name('Iniciar-Sesion'); // Archivo micarrito
 
-Route::get('/Soporte.php', [PaginacionController::class, 'call_soporte'])->name('Soporte.php');
+Route::get('/soporte', [PaginacionController::class, 'call_soporte'])->name('Soporte');
 
 // Ruta para crear cuenta de registro
 
-Route::get('/Inicio-Sesion/Registro.php', [PaginacionController::class, 'call_crear_cuenta'])->name('/Inicio-Sesion/Registro');
+Route::get('/inicio-sesion/registro', [PaginacionController::class, 'call_crear_cuenta'])->name('/Inicio-Sesion/Registro');
 
 // Rutas para cuando se de click en "pagar ahora", este envie el valor a metodo post, y luego llamar la vista con elo metodo get usando session
 // Se usa ajax para pasar el dato al controlador, luego se envía un json para confirmar que se hizo
-Route::get('/Productos/micarrito/metodoDePago.php', [PaymentController::class, 'call_metodoDePago'])->name('Productos.micarrito.metodoDePago'); // Esta ruta está dentro de micarrito
-Route::post('/Productos/micarrito/valor.php', [PaymentController::class, 'call_valor'])->name('Productos.micarrito.valor'); // Esta ruta está dentro de micarrito
+Route::get('/productos/micarrito/metododepago', [PaymentController::class, 'call_metodoDePago'])->name('Productos.micarrito.metodoDePago'); // Esta ruta está dentro de micarrito
+Route::post('/productos/micarrito/valor', [PaymentController::class, 'call_valor'])->name('Productos.micarrito.valor'); // Esta ruta está dentro de micarrito
 
 // Rutas para metodo de pago (tarjeta)
 
@@ -56,14 +61,19 @@ Route::get('/payment/failure', function () {
 
 // Rutas para las vistas de los helados
 
-Route::get('/Helados/Vainilla.php', [PaginacionController::class, 'call_vainilla'])->name('Helados/Vainilla'); 
-Route::get('/Helados/Cereza.php', [PaginacionController::class, 'call_cereza'])->name('Helados/Cereza'); 
-Route::get('/Helados/ChocoMint.php', [PaginacionController::class, 'call_chocoMint'])->name('Helados/ChocoMint'); 
-Route::get('/Helados/ChocoWest.php', [PaginacionController::class, 'call_chocoWest'])->name('Helados/ChocoWest'); 
-Route::get('/Helados/Cookie', [PaginacionController::class, 'call_cookie'])->name('Helados/Cookie'); 
-Route::get('/Helados/Mani.php', [PaginacionController::class, 'call_mani'])->name('Helados/Mani'); 
+Route::get('/helados/vainilla', [PaginacionController::class, 'call_vainilla'])->name('Helados.Vainilla'); 
+Route::get('/helados/cereza', [PaginacionController::class, 'call_cereza'])->name('Helados.Cereza'); 
+Route::get('/helados/chocoMint', [PaginacionController::class, 'call_chocoMint'])->name('Helados.ChocoMint'); 
+Route::get('/helados/chocoWest', [PaginacionController::class, 'call_chocoWest'])->name('Helados.ChocoWest'); 
+Route::get('/helados/cookie', [PaginacionController::class, 'call_cookie'])->name('Helados.Cookie'); 
+Route::get('/helados/mani', [PaginacionController::class, 'call_mani'])->name('Helados.Mani'); 
 
 // Ruta para confirmar los correos electrónicos
 Route::post('/verify-email-domain', [PaymentController::class, 'verifyEmailDomain'])->name('verify-email-domain'); 
 
-
+// Rutas para el sistema de logueo
+Route::post('/login-session', [LoginController::class, 'call_login_session'])->name('login.session');
+Route::post('/register', [LoginController::class, 'register'])->name('register');
+Route::get('confirm-email/{token}', [LoginController::class, 'call_confirmEmail'])->name('confirm.email');
+Route::get('/logout', [PaginacionController::class, 'call_logout'])->name('logout');
+Route::post('/logout-session', [LoginController::class, 'call_logout_session'])->name('logout.session');

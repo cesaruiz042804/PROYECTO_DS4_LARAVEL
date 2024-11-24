@@ -7,34 +7,13 @@
     <title>Mi Carrito</title>
     <link rel="stylesheet" href="{{ asset('assets_css/micarrito.css') }}">
     <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js') }}"></script>
-
+    <link rel="shortcut icon" href="{{ asset('recursos_index/Logo Shirine.png') }}">
 </head>
 
 <body>
-    <header>
-        <nav class="header__nav">
-            <button id="MenuHamburguesa"><img src= "{{ asset('recursos_index/Icon.png') }}" alt="Menu"
-                    title="Menu"></button>
-            <img src="{{ asset('recursos_index/Logo Shirine.png') }}" alt="Logo Shirini-E" title="SHIRINI-E">
-            <a class="header-a" href="{{ route('Shirini-e/index.php') }}">SHIRINI-E</a>
-            <ul class="header__nav-list">
-                <li><a class="nav__list-a" href="{{ route('Shirini-e/index.php') }}">Inicio</a></li>
-                <li><a class="nav__list-a" href="{{ route('Productos/sabores.php') }}">Sabores</a></li>
-                <li><a class="nav__list-a" href="{{ route('Soporte.php') }}">Soporte al cliente</a></li>
-                <li><a class="nav__list-a" href="{{ route('Productos/micarrito.php') }}">Mi carrito</a></li>
-                <li><a class="nav__list-a enlaceLogin" href="{{ route('Iniciar-Sesion.php') }}">Iniciar Sesión</a></li>
-            </ul>
-        </nav>
-    </header>
-    <nav class="Header__NavegadorSecundario" id="MenuSecundario">
-        <ul class="header__nav-listSecundario">
-            <li><a class="navSecundario__list-a" href="{{ route('Shirini-e/index.php') }}">Inicio</a></li>
-            <li><a class="navSecundario__list-a" href="{{ route('Productos/sabores.php') }}">Sabores</a></li>
-            <li><a class="navSecundario__list-a" href="#">Soporte al cliente</a></li>
-            <li><a class="navSecundario__list-a" href="{{ route('Productos/micarrito.php') }}">Mi carrito</a></li>
-            <li><a class="nav__list-a enlaceLogin" href="{{ route('Iniciar-Sesion.php') }}">Iniciar Sesión</a></li>
-        </ul>
-    </nav>
+
+    @include('partials.navbar')
+
     <main class="MainPc">
         <div class="Contenedor__Carrito">
             <div class="Contenedor__CIzquierdo">
@@ -86,7 +65,7 @@
 
                     <div class="Carrusel-Item item5">
                         <div class="Item-Img">
-                            <img src="{{ asset('recursos_micarrito/Cereza.png') }}" title="Helado de Cookie"
+                            <img src="{{ asset('recursos_micarrito/Cookies.png') }}" title="Helado de Cookie"
                                 alt="Helado de Cookie">
                         </div>
                         <div class="Item-Descripcion">
@@ -97,7 +76,7 @@
 
                     <div class="Carrusel-Item item6">
                         <div class="Item-Img">
-                            <img src="{{ asset('recursos_micarrito/Cereza.png') }}" title="Helado de Maní"
+                            <img src="{{ asset('recursos_micarrito/Mani.png') }}" title="Helado de Maní"
                                 alt="Helado de Maní">
                         </div>
                         <div class="Item-Descripcion">
@@ -198,15 +177,14 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="Item--Tarjeta Item--5Movil">
                     <div class="Contenedor__Img">
-                        <img src="{{ asset('recursos_micarrito/Mani.png') }}" title="Helado de Maní"
-                                alt="Helado de Maní">
+                        <img src="{{ asset('recursos_micarrito/Cookies.png') }}" alt="Helado de Cookies"
+                            title="Helado de Cookies">
                     </div>
                     <div class="Contenedor__DescripcionYBotones">
                         <div class="Contenedor__Descripcion">
-                            <h2>Cookie</h2>
+                            <h2>Cereza</h2>
                             <p>15.99$</p>
                         </div>
                         <div class="Contenedor__Botones">
@@ -216,15 +194,14 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="Item--Tarjeta Item--6Movil">
                     <div class="Contenedor__Img">
-                        <img src="{{ asset('recursos_micarrito/Cookies.png') }}" title="Helado de Cookie"
-                                alt="Helado de Cookie">
+                        <img src="{{ asset('recursos_micarrito/Mani.png') }}" alt="Helado de Maní"
+                            title="Helado de Maní">
                     </div>
                     <div class="Contenedor__DescripcionYBotones">
                         <div class="Contenedor__Descripcion">
-                            <h2>Cookie</h2>
+                            <h2>Cereza</h2>
                             <p>15.99$</p>
                         </div>
                         <div class="Contenedor__Botones">
@@ -235,7 +212,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="Contenedorr__Total">
                 <div class="Total-Text">
                     <h3>Tu carrito:</h3>
@@ -247,40 +223,11 @@
             </div>
         </div>
     </main>
-    <footer>
-        <p>Redes Sociales</p>
-        <div class="Footer__Contenedor">
-            <div class="Contenedor__Items1">
-                <img src="{{ asset('recursos_index/facebook.png') }}" alt="Icono Facebook" title="Icono Facebook">
-                <a href="#2">Facebook</a>
-            </div>
-            <div class="Contenedor__Items2">
-                <img src="{{ asset('recursos_index/llamada-telefonica.png') }}" alt="Icono LLamada"
-                    title="Icono Llamada">
-                <a href="#2">+507 5211-0000</a>
-            </div>
-            <div class="Contenedor__Items1">
-                <img src="{{ asset('recursos_index/instagram.png') }}" alt="Icono Instagram"
-                    title="Icono Instagram">
-                <a href="#2">Instagram</a>
-            </div>
-            <div class="Contenedor__Items2">
-                <img src="{{ asset('recursos_index/ubicacion.png') }}" alt="Icono Ubicacion">
-                <a href="#2">Avenida J Alfaro, Local 9</a>
-            </div>
-            <div class="Contenedor__Items1">
-                <img src="{{ asset('recursos_index/x.png') }}" alt="Icono X" title="Icono X">
-                <a href="#2">X</a>
-            </div>
-            <div class="Contenedor__Items2">
-                <img src="{{ asset('recursos_index/correo.png') }}" alt="Icono Correo" title="Icono Correo">
-                <a href="#2">shirinie.ice@shirinie.net</a>
-            </div>
-        </div>
-    </footer>
+
+    @include('partials.footer')
 
     <script src="{{ asset('assets_js/micarrito.js') }}"></script>
-    <script type="module" src="{{ asset('assets_js/carritomovil.js') }}"></script>
+    <script src="{{ asset('assets_js/carritomovil.js') }}"></script>
 
     <script>
         const payButton = document.getElementById('payButton');
@@ -303,7 +250,7 @@
                         if (response.success) { // Verifica si la respuesta fue exitosa
 
                             window.location.href =
-                            "{{ route('Productos.micarrito.metodoDePago') }} "; // Redirige al usuario a la página deseada con el valor en la URL
+                                "{{ route('Productos.micarrito.metodoDePago') }} "; // Redirige al usuario a la página deseada con el valor en la URL
                         } else {
                             alert('Error en el procesamiento del dato');
                         }
