@@ -11,7 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Log;
 
-class EmailSender extends Mailable implements ShouldQueue
+class EmailSender extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -26,50 +26,18 @@ class EmailSender extends Mailable implements ShouldQueue
         $this->name = $name;
     }
 
-    /*
     public function build()
     {
-        Log::debug("build");
-
         $fechaActual = now();
-        //$fechaFormateada = $fechaActual->format('d/m/Y'); // Formatear la fecha en el formato dd/mm/yyyy
+        $fechaFormateada = $fechaActual->format('d/m/Y'); // Formatear la fecha en el formato dd/mm/yyyy
+        $fechaFormateada = explode(' ', $fechaFormateada)[0];
+        return $this->view('mails.email-send')
+        ->with(['name' => $this->name])
+        ->with(['amount' => $this->amount])
+        ->with(['cardType' => $this->cardType])
+        ->with(['date_actually' => $fechaFormateada])
+        ->subject('Tienda online Shirini-e');
 
-        return $this->subject('Payment Confirmation')
-            ->view('mails.email-send', [
-                'name' => $this->name,
-                'amount' => $this->amount,
-                'cardType' => $this->cardType,
-                'date_actually' => $fechaActual
-            ]);
+        return $email;
     }
-            */
-
-    
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: '¡Pago confirmado!',
-        );
-    }
-
-    public function content(): Content
-    {
-        $fechaActual = now();
-        
-        return new Content(
-            view: 'mails/email-send',
-            with: [
-                'amount' => $this->amount,
-                'cardType' => $this->cardType,
-                'name' => $this->name,
-                'date_actually' => now()->format('d/m/Y')
-            ]
-        );
-    }
-
-    public function attachments(): array
-    {
-        return [];
-    }
-        
 }

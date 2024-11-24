@@ -12,10 +12,6 @@
 
 <body>
     <style>
-        body {
-            background-image: linear-gradient(to left, #c49e9e, var(--celeste_));
-        }
-
         :root {
             --brown_: #671F1F;
             --pink_: #EF83D180;
@@ -24,6 +20,11 @@
             --chocolate_: #8F620A;
             --cereza_: #A01927;
         }
+        
+        body {
+            background-image: linear-gradient(to left, #c49e9e, var(--celeste_));
+        }
+
     </style>
 
     <script>

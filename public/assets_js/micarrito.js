@@ -105,11 +105,3 @@ tarjetasIzquierda.forEach(tarjeta => {
   });
 });
 
-//MenuHamburguesa
-menuBtn.addEventListener('click', () => {
-  menu.classList.toggle('active');
-  header.classList.toggle('transparent');
-  img.classList.toggle('quitar');
-});
-
-

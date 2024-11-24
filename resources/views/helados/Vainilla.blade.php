@@ -34,7 +34,7 @@
                     ¡Frescura, sabor y calidad en cada <br> cucharada!
 
                 </p>
-                <button class="order-button">Ordenar ahora</button>
+                <button class="order-button"><a href="{{ route('Productos.micarrito') }}">Ordenar ahora</a></button>
             </div>
         </div>
     </main>

@@ -59,7 +59,7 @@
                         </div>
                         <div class="Item-Descripcion">
                             <h2>Cereza</h2>
-                            <p>15.99$</p>
+                            <p>19.99$</p>
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@
                         </div>
                         <div class="Item-Descripcion">
                             <h2>Maní</h2>
-                            <p>15.99$</p>
+                            <p>13.99$</p>
                         </div>
                     </div>
                 </div>
@@ -94,10 +94,10 @@
                 <div class="CDerecho__Total">
                     <div class="Total-Text">
                         <h3>Tu carrito:</h3>
-                        <p id="payValor">0$</p>
+                        <p id="payValor" class="payValor">0$</p>
                     </div>
                     <div class="Total-button">
-                        <a href="#" id="payButton">Pagar Ahora</a>
+                        <a id="payButton" class="payButton">Pagar Ahora</a>
                     </div>
                 </div>
             </div>
@@ -168,7 +168,7 @@
                     <div class="Contenedor__DescripcionYBotones">
                         <div class="Contenedor__Descripcion">
                             <h2>Cereza</h2>
-                            <p>15.99$</p>
+                            <p>19.99$</p>
                         </div>
                         <div class="Contenedor__Botones">
                             <button class="boton-restar">-</button>
@@ -184,7 +184,7 @@
                     </div>
                     <div class="Contenedor__DescripcionYBotones">
                         <div class="Contenedor__Descripcion">
-                            <h2>Cereza</h2>
+                            <h2>Cookies</h2>
                             <p>15.99$</p>
                         </div>
                         <div class="Contenedor__Botones">
@@ -201,8 +201,8 @@
                     </div>
                     <div class="Contenedor__DescripcionYBotones">
                         <div class="Contenedor__Descripcion">
-                            <h2>Cereza</h2>
-                            <p>15.99$</p>
+                            <h2>Maní</h2>
+                            <p>13.99$</p>
                         </div>
                         <div class="Contenedor__Botones">
                             <button class="boton-restar">-</button>
@@ -215,10 +215,10 @@
             <div class="Contenedorr__Total">
                 <div class="Total-Text">
                     <h3>Tu carrito:</h3>
-                    <p id="payValor">0$</p>
+                    <p id="payValor-movil" class="payValor">0$</p>
                 </div>
                 <div class="Total-button">
-                    <a id="payButton">Pagar Ahora</a>
+                    <a id="payButton-movil" class="payButton">Pagar Ahora</a>
                 </div>
             </div>
         </div>
@@ -230,27 +230,23 @@
     <script src="{{ asset('assets_js/carritomovil.js') }}"></script>
 
     <script>
-        const payButton = document.getElementById('payButton');
-        payButton.addEventListener('click', function() {
-            const valor = document.getElementById('payValor').innerText.replace('$', '');
+        function procesarPago(selectorValor, boton) {
+            const valor = document.querySelector(selectorValor).innerText.replace('$', '');
 
             if (parseFloat(valor) === 0) {
                 alert("Debe seleccionar al menos un producto");
             } else {
                 // Enviar el valor usando AJAX a Laravel
                 $.ajax({
-                    url: "{{ route('Productos.micarrito.valor') }}", // Ruta al controlador que guarda el dato en una session
-                    type: "POST", // Método de envío
+                    url: "{{ route('Productos.micarrito.valor') }}",
+                    type: "POST",
                     data: {
                         valor: valor, // Valor que se va enviar
                         _token: "{{ csrf_token() }}" // Incluye el token CSRF de Laravel
                     },
                     success: function(response) {
-
-                        if (response.success) { // Verifica si la respuesta fue exitosa
-
-                            window.location.href =
-                                "{{ route('Productos.micarrito.metodoDePago') }} "; // Redirige al usuario a la página deseada con el valor en la URL
+                        if (response.success) {
+                            window.location.href = "{{ route('Productos.micarrito.metodoDePago') }}";
                         } else {
                             alert('Error en el procesamiento del dato');
                         }
@@ -258,6 +254,24 @@
                     error: function(xhr, status, error) {
                         alert('Error al procesar el pago');
                     }
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Botón para escritorio
+            const payButton = document.querySelector('.payButton');
+            if (payButton) {
+                payButton.addEventListener('click', function() {
+                    procesarPago('.payValor', payButton);
+                });
+            }
+
+            // Botón para móvil
+            const payButtonMovil = document.querySelector('#payButton-movil');
+            if (payButtonMovil) {
+                payButtonMovil.addEventListener('click', function() {
+                    procesarPago('#payValor-movil', payButtonMovil);
                 });
             }
         });

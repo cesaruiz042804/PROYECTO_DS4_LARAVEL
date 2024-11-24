@@ -34,41 +34,56 @@
                 <input type="hidden" name='amount' id='amount' value="{{ $valor }}" style="display: none;">
                 <!-- Esto es para guardar el precio de la compra -->
                 <!-- Esto es importante, ya que sin eso no se puede crear el token-->
+                <div class="item-info">
+
+                </div>
+                <div class="item-info">
+
+                </div>
                 <h3>Configura tu tarjeta de crédito o débito</h3>
-                <div>
-                    <label for="NumeroTarjeta">Número de tarjera</label>
-                    <div id="NumeroTarjeta"></div>
-                </div>
-
-                <div>
-                    <label for="FechaVencimiento">Fecha de vencimiento</label>
-                    <div id="FechaVencimiento"></div>
-                </div>
-
-                <div>
-                    <label for="CVV">CVC</label>
-                    <div id="CVV"></div>
-                </div>
-
-                <div>
-                    <label for="NombreTarjeta">Títular de la tarjeta</label>
+                <div class="item-info">
                     <div>
-                        <input type="text" placeholder="Nombre como aparece en la tarjeta" name="NombreTarjeta"
-                            id="NombreTarjeta">
+                        <label for="NumeroTarjeta">Número de tarjera</label>
+                        <div id="NumeroTarjeta"></div>
                     </div>
                 </div>
-                <div>
-                    <label for="Correo">Correo eléctronico</label>
+                <div class="item-info">
                     <div>
-                        <input type="text" placeholder="Correo para enviar factura" name="Correo" id="Correo">
+                        <label for="FechaVencimiento">Fecha de vencimiento</label>
+                        <div id="FechaVencimiento"></div>
                     </div>
                 </div>
+                <div class="item-info">
+                    <div>
+                        <label for="CVV">CVC</label>
+                        <div id="CVV"></div>
+                    </div>
+                </div>
+                <div class="item-info">
+                    <div>
+                        <label for="NombreTarjeta">Títular de la tarjeta</label>
+                        <div>
+                            <input type="text" placeholder="Nombre como aparece en la tarjeta" name="NombreTarjeta"
+                                id="NombreTarjeta">
+                        </div>
+                    </div>
+                </div>
+                <div class="item-info">
+                    <div>
+                        <label for="Correo">Correo eléctronico</label>
+                        <div>
+                            <input type="text" placeholder="Correo para enviar factura" name="Correo" id="Correo">
+                        </div>
+                    </div>
+                </div>
+
+
                 <p>Al hacer clic en el botón «Realizar Pedido», aceptas nuestros Términos de uso y nuestra Declaración
                     de privacidad, declaras que tienes más de 18 años y aceptas que u pedido se ha realizado de forma
                     eficaz.</p>
                 <div class="ContenedroTarjeta-BotonesDePagar">
                     <div class="InfoTarjeta-Cambiar">
-                        <a href = '{{ route('Productos.micarrito') }}'>{{ $valor }} $ cambiar</a>
+                       <button type="button"><a href = '{{ route('Productos.micarrito') }}'>{{ $valor }} $ cambiar</a></button> 
                     </div>
                     <div class="InfoTarjeta-Pagar">
                         <button onclick="createToken()" class="btnForm">Realizar Pedido</button>

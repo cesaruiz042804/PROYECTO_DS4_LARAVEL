@@ -47,11 +47,6 @@ body{
 }
 /*End fonts and variables for colors*/
 
-/*Header section start----------------*/
-
-/*Psudoe-clases para los a del header--------final*/
-/*Section header end------------------*/
-
 /*Seccion main---------------Start*/
 main{
     height: 100vh;
@@ -60,15 +55,28 @@ main{
     z-index: 1;
 }
 
-.Main__ContenedorTarjeta{
+.Main__ContenedorTarjeta {
     width: 40%;
-    height: 85%;
+    height: 80%;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 8%;
     background-color: white;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+}
+
+.item-info {
+    width: 90%;
+}
+
+.ContenedorTarjeta-InfoTarjetas {
+    text-align: start;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
 }
 
 .ContenedorTarjeta-ImgTarjetas{
@@ -89,39 +97,32 @@ main{
     flex: 1;
     font-family: 'Saira';
     width: 100%;
-    margin: auto;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    gap: 10px;
 }
 
 .ContenedorTarjeta-InfoTarjetas label{
     font-size: 18px;
-    text-align: start;
-    margin-top: 5px;
-    display: flex;
     flex-direction: column;
     width: 90%;
     margin: 5px auto;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; /* Para navegadores que soportan la propiedad estándar */
 }
 
 .ContenedorTarjeta-InfoTarjetas input{
     border-radius: 15px;
     height: 30px;
     font-size: 16px;
+    width: 99%;    
+    padding-left: 10px;
+    padding: 5px 0 5px 8px;
 }
 
 .ContenedorTarjeta-InfoTarjetas p{
     width: 90%;
-    text-align: justify;
     margin: auto;
+    text-align: center;
 }
 
 .ContenedorTarjeta-InfoTarjetas h3{
@@ -130,48 +131,34 @@ input[type="number"]::-webkit-outer-spin-button {
     font-weight: bold;
 }
 
-.ContenedroTarjeta-BotonesDePagar{
-    justify-content: space-between;
-    display: flex;
-}
-
-.InfoTarjeta-Cambiar{
-    align-items: center;
-    /*background-color: #608F80;*/
-}
-
-.InfoTarjeta-Pagar{
-    align-items: center;
-    /*background-color: #608F80;*/
-}
-
 .InfoTarjeta-Cambiar a{
-    display: flex;
-    background-color: var(--pink_);
-    width: 33%;
-    border-radius: 15px;
-    height: 25px;
-    padding: 0 20px;
-    color: black;
-    align-items: center;
     text-decoration: none;
-    text-align: center;
-    justify-content: center;
-    font-size: 15px;
 }
 
-.InfoTarjeta-Pagar button{
-    background-color: var(--pink_);
-    width: 45%;
+.ContenedroTarjeta-BotonesDePagar {
     display: flex;
-    padding: 0 20px;
-    border-radius: 15px;
-    height: 30px;
-    align-items: center;
-    border: none;
-    justify-content: center;
-    font-size: 15px;
+    width: 100%;
+    justify-content: space-between;
 }
+
+.ContenedroTarjeta-BotonesDePagar div {
+    width: 50%;  /* Ajuste para que los divs no se apilen */
+    display: flex; /* Asegura que el contenido de los divs se alinee correctamente */
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.InfoTarjeta-Pagar button, .InfoTarjeta-Cambiar button {
+    background-color: var(--pink_);
+    width: 80%;
+    padding: 15px 5px;
+    border-radius: 15px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
 
 /*Psudoe-clases para el main-------start*/
 
@@ -204,44 +191,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /*Psudoe-clases para el footer del main-------final*/
 /*Seccion Main-----------------End*/
-
-
-/*Seccion footer---------------Inicio*/
-footer{
-    height: 221px;
-    background-image: linear-gradient(to right, var(--celeste_), #D847C0);
-    box-shadow: 0px -4px 4px #00000025;
-}
-
-footer p{
-    font-size: 24px;
-    padding: 0 0 0 20px;
-}
-
-.Footer__Contenedor{
-    width: 30%;
-    padding: 0 0 0 20px;
-}
-
-.Footer__Contenedor a{
-    color: black;
-    text-decoration: none;
-}
-.Contenedor__Items1{
-    font-size: 15px;
-    display: inline-block;
-    width: 150px;
-    padding: 0;
-    align-items: center;
-}
-
-.Contenedor__Items2{
-    font-size: 15px;
-    display: inline-block;
-    width: 200px;
-    padding: 0;
-    align-items: center;
-}
 
 /*Psudoe-clases para el footer-------inicio*/
 .Contenedor__Items1 a:active{
@@ -286,42 +235,23 @@ footer p{
 /*Psudoe-clases para el footer-------final*/
 /*Seccion footer---------------Final*/
 
-.ContenedorTarjeta-InfoTarjetas{
-    flex: 1;
-    font-family: 'Saira';
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.ContenedorTarjeta-InfoTarjetas div{
-    text-align: start;
-    margin-top: 5px;
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 5px auto;
-}
-
 #CVV, #NumeroTarjeta, #FechaVencimiento{
     border-radius: 15px;
     border: 2px solid black;
     height: 30px;
-    display: flex;
-    justify-content: center;
-    padding-left: 3px;
+    padding-left: 10px;
+    padding-top: 10px;
+    text-align: left;
+    align-items: center;
 }
 
-
 #CVV:focus-within, #NumeroTarjeta:focus-within, #FechaVencimiento:focus-within {
-    border-width: 5px;
+    border-width: 4px;
 }
 
 
 @media (max-width: 768px) {
     .Main__ContenedorTarjeta{
-        width: 80%;
+        width: 90%;
     }
 }

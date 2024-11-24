@@ -29,7 +29,7 @@
                          este helado es la fusión perfecta entre <br>textura y sabor. 
                          ¡Un placer que no podrás <br>dejar de disfrutar
                 </p>
-                <button class="order-button">Ordenar ahora</button>
+                <button class="order-button"><a href="{{ route('Productos.micarrito') }}">Ordenar ahora</a></button>
             </div>
         </div>
     

@@ -12,7 +12,7 @@
 <body style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; color: #4b4b4e;">
     <div
         style="background-color: #ffffff; max-width: 100%; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-        <div style="background-color: #ff63c3; padding: 20px; color: white; text-align: center;">
+        <div style="background-color: #75aafa; padding: 20px; color: white; text-align: center;">
             <h2 style="margin: 0;">Confirma tu cuenta</h2>
         </div>
         <div style="padding: 20px; line-height: 1.5;">
@@ -26,7 +26,7 @@
             </div>
             <div style="justify-content: center; align-content: center; text-align: center;">
                 <a href="{{ url('confirm-email/' . $token) }}"
-                    style="display: inline-block; background-color: #ff63c3; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; margin-top: 20px; transition: background-color 0.3s ease;">
+                    style="display: inline-block; background-color: #75aafa; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; margin-top: 20px; transition: background-color 0.3s ease;">
                     Activar cuenta
                 </a>
                 <hr style="height: 2px; background: linear-gradient(to right, #f7f5ff, #724366); width: 80%; margin: 20px auto;">

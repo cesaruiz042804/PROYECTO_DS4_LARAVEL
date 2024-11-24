@@ -28,7 +28,7 @@
                          aventureros del sabor. ¡Chocowest es la <br>elección perfecta para quienes
                           buscan algo <br>más que un simple helado de chocolate!
                 </p>
-                <button class="order-button">Ordenar ahora</button>
+                <button class="order-button"><a href="{{ route('Productos.micarrito') }}">Ordenar ahora</a></button>
             </div>
         </div>
     

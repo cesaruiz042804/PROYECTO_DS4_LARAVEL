@@ -7,14 +7,18 @@
     <title>Shirini-E</title>
     <link rel="stylesheet" href="{{ asset('assets_css/index.css') }}">
     <link rel="shortcut icon" href="{{ asset('recursos_index/Logo Shirine.png') }}">
+    <!--
+    php -S localhost:8000 -t public
+     
+    -->
 </head>
 
 <body>
 
     @if (session()->has('partialsMessage') && session('partialsMessage') == 'ok')
-        @include('partials.messageGood')
+        @include('partials.messageGood') <!-- Mensaje de exito -->
     @else
-        @include('partials.messageErrors')
+        @include('partials.messageErrors') <!-- Mensaje de error -->
     @endif
 
     @php

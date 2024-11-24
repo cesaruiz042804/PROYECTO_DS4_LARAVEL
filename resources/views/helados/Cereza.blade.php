@@ -26,10 +26,9 @@
                        Perfecto para <br>quienes buscan un helado frutal lleno de<br> color y sabor. 
                     ¡Un capricho irresistible para <br>cualquier ocasión!        
                 </p>
-                <button class="order-button">Ordenar ahora</button>
+                <button class="order-button"><a href="{{ route('Productos.micarrito') }}">Ordenar ahora</a></button>
             </div>
         </div>
-    
     </main>
 
     @include('partials.footer')

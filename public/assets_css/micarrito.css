@@ -48,11 +48,6 @@ body {
 
 /*End fonts and variables for colors*/
 
-/*Header section start----------------*/
-
-/*Psudoe-clases para los a del header--------final*/
-/*Section header end------------------*/
-
 /*Seccion main---------------Start*/
 .MainPc {
     height: 100vh;
@@ -293,6 +288,10 @@ body {
     align-content: center;
 }
 
+.payValor-movil, .payButton-movil, .payButton, .payValor {
+    cursor: pointer;
+}
+
 /*pseudoclases para el main------------start*/
 .Total-button a:active {
     background-color: #0001;
@@ -441,5 +440,3 @@ body {
     }
 
 }
-
-/*Adaptacion a movil---------------End*/

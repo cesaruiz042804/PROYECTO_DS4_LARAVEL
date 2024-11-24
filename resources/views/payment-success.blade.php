@@ -11,28 +11,7 @@
 </head>
 
 <body>
-    <!--
-    @if (session('success'))
-<div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-@endif
-
-    @if (session('iconPath'))
-<img src="{{ asset(session('iconPath')) }}" alt="Card Icon">
-        <p id="imageCard"></p>
-@endif
-
-    @if (session('cardType'))
-<p>Card Type: {{ session('cardType') }}</p>
-@endif
-    -->
-
     <style>
-        body {
-            background-image: linear-gradient(to left, #857df3, var(--celeste_));
-        }
-
         :root {
             --brown_: #671F1F;
             --pink_: #EF83D180;
@@ -40,6 +19,10 @@
             --menta_: #608F80;
             --chocolate_: #8F620A;
             --cereza_: #A01927;
+        }
+
+        body {
+            background-image: linear-gradient(to left, #857df3, var(--celeste_));
         }
     </style>
 
@@ -61,7 +44,7 @@
                 timer: 6000
             }).then(() => {
                 //window.location.href = "{ route('Shirini-e/index.php') }}";
-                window.location.replace("{{ url('/Shirini-e/index') }}");
+                window.location.replace("{{ url('/index') }}");
             });
         }
 

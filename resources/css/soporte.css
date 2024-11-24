@@ -1,4 +1,4 @@
-body,header,main,footer{
+body, main{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -39,11 +39,6 @@ body{
     --celeste_: #D6E9FF
 }
 /*End fonts and variables for colors*/
-
-/*Header section start----------------*/
-
-/*Psudoe-clases para los a del header--------final*/
-/*Section header end------------------*/
 
 /*Seccion main---------------Start*/
 main{
@@ -112,7 +107,6 @@ main{
 }
 
 .preguntas-respuestas{
-    
     margin-top: 10%;
     width: 500px;
     height: 400px;
@@ -120,18 +114,16 @@ main{
     margin-left: 120px;
     font-size: 12px;
     overflow-y: scroll;
-    
 }
 
 .numero1-{
-    
     align-content: center;
     background-color: white;
     width: 500px;
     height: 400px;
     border-radius: 15px;
     font-size: 12px;
- 
+    height: auto;
 }
 .numero1- p{
  
@@ -140,7 +132,7 @@ main{
     border-radius: 15px;
     margin-left: 30px;
     font-size: 12px;
-    
+    height: auto;
 }
 .numero1- h1{
     
@@ -155,7 +147,7 @@ main{
     height: 400px;
     border-radius: 15px;
     font-size: 12px;
- 
+    height: auto;
 }
 .numero2- p{
     
@@ -165,14 +157,11 @@ main{
     border-radius: 15px;
     margin-left: 30px;
     font-size: 12px;
+    height: auto;
 
 }
 
-
-
-
 .terminos-condiciones{
-      
     margin-top: -32%;
     width: 450px;
     height: 400px;
@@ -180,8 +169,6 @@ main{
     margin-left: 55%;
     font-size: 12px;
     overflow: scroll;
-    
-    
 }
 
 .numero1{
@@ -191,18 +178,16 @@ main{
     height: 240px;
     border-radius: 15px;
     font-size: 12px;
-    
-    
+    height: auto;
 }
 .numero1 p{
-    
     margin-top: 5%;
     width: 350px;
     height: 300px;
     border-radius: 15px;
     margin-left: 30px;
     font-size: 12px;
-
+    height: auto;
 }
 
 .numero1 h1{
@@ -218,17 +203,16 @@ main{
     height: 200px;
     border-radius: 15px;
     font-size: 12px;
- 
+    height: auto;
 }
 .numero2 p{
-    
     margin-top: 5%;
     width: 350px;
     height: 300px;
     border-radius: 15px;
     margin-left: 30px;
     font-size: 12px;
-
+    height: auto;
 }
 
 .numero3{
@@ -239,16 +223,15 @@ main{
     height: 250px;
     border-radius: 15px;
     font-size: 12px;
- 
+    height: auto;
 }
 .numero3 p{
-    
     margin-top: 5%;
     width: 350px;
     height: 300px;
     border-radius: 15px;
     margin-left: 30px;
     font-size: 12px;
-
+    height: auto;
 }
 

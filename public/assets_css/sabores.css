@@ -1,210 +1,105 @@
-body,header,main,footer{
+body,
+header,
+main,
+footer {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Saira';
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to left ,#F9BABC ,var(--celeste_) );
+    background-image: linear-gradient(to left, #F9BABC, var(--celeste_));
 }
+
 /*Start Fonts and variables for colors*/
 @font-face {
-    font-family: 'Poppins'; /* Nombre de la fuente */
+    font-family: 'Poppins';
+    /* Nombre de la fuente */
     src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Poppins\Poppins-ExtraBold.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Saira'; /* Nombre de la fuente */
+    font-family: 'Saira';
+    /* Nombre de la fuente */
     src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-Regular.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'SairaE'; /* Nombre de la fuente */
+    font-family: 'SairaE';
+    /* Nombre de la fuente */
     src: url('C:\Users\User\Desktop\Shirini\recursos\fonts\Saira\static\Saira-ExtraBold.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
-:root{
+:root {
     --brown_: #671F1F;
-    --pink_:#EF83D180;
+    --pink_: #EF83D180;
     --celeste_: #D6E9FF
 }
+
 /*End fonts and variables for colors*/
 
-/*Header section start----------------*/
-header{
-    position: absolute; /*El main ocupa 100dvh y el header esta absoluto para que el fondo forme parte tambien del fondo del header gracias al z-index*/
-    width:100%;
-    height: 15dvh;
-    z-index: 100;
-    overflow: hidden;
-}
-
-#MenuHamburguesa{
-    display: none;
-}
-
-.Header__NavegadorSecundario{
-    display: none;
-}
-
-.header__nav{
-    display: flex;
-    justify-content: space-between; /* Centramos los elementos en el eje horizontal */
-    align-items: center; /* Centramos los elementos en el eje vertical */
-    margin: 20px 20px;
-}
-
-.header__nav img{
-    height: 50px;
-    width: 50px;
-}
-
-.header-a{
-    flex: 1;
-    margin-left:10px ;
-    font-size: 32px;
-    color: var(--brown_);
-    text-decoration: none;
-}
-
-.header__nav-list{
-    display: flex;
-    flex: 1;
-    justify-content: end;
-}
-
-.header__nav-list li{
-    list-style: none;
-    margin: 5px 20px 0 20px;
-}
-
-.nav__list-a{
-    text-decoration: none;
-    color: black;
-}
-
-.enlaceLogin{
-    background-color: var(--pink_);
-    padding: 5px 20px;
-    border-radius: 15px;
-}
-
-/*Psudoe-clases para los a del header--------inicio*/
-.nav__list-a:active{
-    color:#0001
-}
-
-.nav__list-a:visited{
-    color: black;
-}
-
-.nav__list-a:hover{
-    border-bottom: 1px solid black;
-}
-
-.enlaceLogin:hover{
-    border: none;
-}
-
-.header-a:visited{
-    color: var(--brown_);
-}
-/*Psudoe-clases para los a del header--------final*/
-/*Section header end------------------*/
-
-/*Seccion main---------------Start*/
-main{
+main {
     height: 100dvh;
     overflow: hidden;
-}
-/*Section main---------------End*/
-
-/*Seccion footer---------------Inicio*/
-footer{
-    height: 221px;
-    background-image: linear-gradient(to right, var(--celeste_), #D847C0);
-    box-shadow: 0px -4px 4px #00000025;
-}
-
-footer p{
-    font-size: 24px;
-    padding: 0 0 0 20px;
-}
-
-.Footer__Contenedor{
-    width: 30%;
-    padding: 0 0 0 20px;
-}
-
-.Footer__Contenedor a{
-    color: black;
-    text-decoration: none;
-}
-.Contenedor__Items1{
-    font-size: 15px;
-    display: inline-block;
-    width: 150px;
-    padding: 0;
+    justify-content: center;
     align-items: center;
-}
-
-.Contenedor__Items2{
-    font-size: 15px;
-    display: inline-block;
-    width: 200px;
-    padding: 0;
-    align-items: center;
+    justify-items: center;
 }
 
 /*Psudoe-clases para el button del main-------final*/
-.Contenedor__Items1 a:active{
+.Contenedor__Items1 a:active {
     color: #0001;
 }
 
-.Contenedor__Items1 a:visited{
+.Contenedor__Items1 a:visited {
     color: black;
 }
 
-.Contenedor__Items1 a:hover{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+.Contenedor__Items1 a:hover {
+    transform: scale(1.1);
+    /* Aumenta el tamaño en un 10% */
     padding: 5px;
     border-radius: 5px;
 }
 
-.Contenedor__Items1 a:focus{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+.Contenedor__Items1 a:focus {
+    transform: scale(1.1);
+    /* Aumenta el tamaño en un 10% */
     padding: 5px;
     border-radius: 5px;
 }
 
-.Contenedor__Items2 a:active{
+.Contenedor__Items2 a:active {
     color: #0001;
 }
 
-.Contenedor__Items2 a:visited{
+.Contenedor__Items2 a:visited {
     color: black;
 }
 
-.Contenedor__Items2 a:hover{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+.Contenedor__Items2 a:hover {
+    transform: scale(1.1);
+    /* Aumenta el tamaño en un 10% */
     padding: 5px;
     border-radius: 5px;
 }
 
-.Contenedor__Items2 a:focus{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+.Contenedor__Items2 a:focus {
+    transform: scale(1.1);
+    /* Aumenta el tamaño en un 10% */
     padding: 5px;
     border-radius: 5px;
 }
+
 .search-bar {
     display: flex;
     justify-content: center;
@@ -226,6 +121,7 @@ footer p{
     cursor: pointer;
     margin-left: -40px;
 }
+
 .carousel {
     display: flex;
     justify-content: center;
@@ -240,20 +136,22 @@ footer p{
 .carousel-items {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 300%; 
+    width: 300%;
 }
 
 .carousel-item {
-    min-width: calc(28% - 40px); /* Ajusta el porcentaje y el espacio deseado */
+    min-width: calc(28% - 40px);
+    /* Ajusta el porcentaje y el espacio deseado */
     box-sizing: border-box;
     text-align: center;
-    margin-right: 30px; /* Espacio entre las imágenes */
+    margin-right: 30px;
+    /* Espacio entre las imágenes */
 }
 
 .carousel-item img {
-    width: 100%; 
-    height: 300px; 
-    object-fit: cover; 
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
     border-radius: 10px;
 }
 
@@ -264,10 +162,11 @@ footer p{
 }
 
 .carousel-item:last-child {
-    margin-right: 0; 
+    margin-right: 0;
 }
 
-.prev, .next {
+.prev,
+.next {
     background-color: #ff9999;
     border: none;
     color: white;
@@ -290,3 +189,21 @@ footer p{
 
 /*Psudoe-clases para el footer del main-------final*/
 /*Seccion footer---------------Final*/
+
+@media (max-width: 768px) {
+
+    .Item--Tarjeta {
+        width: 400px;
+        background-color: #671F1F;
+    }
+
+
+    .Contenedor__Img {
+        width: 500px;
+        background-color: #671F1F;
+    }
+
+    .search-bar {
+        width: 80%;
+    }
+}

@@ -137,8 +137,13 @@ class LoginController extends Controller
 
     public function call_logout_session()
     {
-        Log::debug(session('user'));
+        //Log::debug(session('user'));
         session()->forget('user'); // Eliminar el ID del usuario de la sesión
         return redirect()->route('index'); // Redirigir a la página de inicio de sesión
+    }
+
+    public function call_logout()
+    {
+        return view('logout');
     }
 }

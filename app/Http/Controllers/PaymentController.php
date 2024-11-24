@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Log;
 //use Termwind\Components\Raw;
 use \App\Mail\EmailSender;
 use Illuminate\Support\Facades\Mail;
-use App\Jobs\jobEmailPayment; 
-
+use App\Jobs\jobEmailPayment;
+use App\Models\table_user;
 
 class PaymentController extends Controller
 {
@@ -37,14 +37,14 @@ class PaymentController extends Controller
     {
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
-        
+
         $token = $request->input('stripeToken'); // Se obtiene el token del input que guarda el token de stripe
-        
+
         Log::debug($token);
         // Es necesario que los input en html tengan el atributo name para poder identificarlos en el controlador
         $name = $request->input('NombreTarjeta');
         $amount = $request->input('amount');
-        $email = $request->input('Correo'); 
+        $email = $request->input('Correo');
 
         try {
             $charge = Charge::create([
@@ -53,9 +53,9 @@ class PaymentController extends Controller
                 'source' => $token,
                 'description' => 'Test Payment',
             ]);
-            
+
             $cardType = $charge->payment_method_details->card->brand; // Obtener el tipo de tarjeta
-            
+
             $cardIcons = [ // Mapeo de iconos
                 'visa' => 'recursos_iconos/visa.png',
                 'mastercard' => 'recursos_iconos/mastercard.png',
@@ -64,7 +64,7 @@ class PaymentController extends Controller
                 'diners' => 'recursos_iconos/diners.png',
                 'default' => 'recursos_iconos/default.png',
             ];
-            
+
             //jobEmailPayment::dispatch($email, $name, $amount, $cardType); // Esto es para hacer el proceso de enviar correo en segundo plano
 
             session()->forget(['iconPath', 'cardType']); // Limpia también en caso de error
@@ -80,19 +80,18 @@ class PaymentController extends Controller
             return redirect()->route('payment.failure')->with('error', $e->getMessage()); // Si da fallos, redireccion a otra pagina
         }
     }
-    
+
     public function verifyEmailDomain(Request $request) // Función para verificar el email
     {
-        try{
+        try {
             $request->validate([
                 'Correo' => 'required|email'
             ]);
-
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             Log::debug($e->getMessage());
             return response()->json(['valid' => false, 'message' => 'Por favor, ingresa un correo electrónico válido.']);
         }
-        
+
         $email = $request->input('Correo'); // Recibe el correo
 
         $allowedDomains = [ // Lista de dominios permitidos
@@ -108,14 +107,21 @@ class PaymentController extends Controller
             'mail.com',
             'utp.ac.pa'
         ];
-        
-        $domain = substr(strrchr($email, "@"), 1); // Extrae el dominio
 
+        $domain = substr(strrchr($email, "@"), 1); // Extrae el dominio
+        
+        $exists = table_user::where('email', $email)->exists();
+
+        if (!$exists) {
+            return response()->json(['valid' => false, 'message' => 'Debes estar registrado primero para hacer la compra.']);
+        } 
+        
         if (in_array($domain, $allowedDomains)) {
             return response()->json(['valid' => true]);
         } else {
             return response()->json(['valid' => false, 'message' => 'Dominio no permitido.']);
         }
+
     }
 }
 

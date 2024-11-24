@@ -4,6 +4,7 @@ use App\Http\Controllers\PaginacionController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\SessionMiddleware;
 
 /* 
 Sintaxis para hacer las rutas: 
@@ -43,7 +44,7 @@ Route::get('/inicio-sesion/registro', [PaginacionController::class, 'call_crear_
 
 // Rutas para cuando se de click en "pagar ahora", este envie el valor a metodo post, y luego llamar la vista con elo metodo get usando session
 // Se usa ajax para pasar el dato al controlador, luego se envía un json para confirmar que se hizo
-Route::get('/productos/micarrito/metododepago', [PaymentController::class, 'call_metodoDePago'])->name('Productos.micarrito.metodoDePago'); // Esta ruta está dentro de micarrito
+Route::get('/productos/micarrito/metododepago', [PaymentController::class, 'call_metodoDePago'])->name('Productos.micarrito.metodoDePago')->middleware(SessionMiddleware::class); // Esta ruta está dentro de micarrito
 Route::post('/productos/micarrito/valor', [PaymentController::class, 'call_valor'])->name('Productos.micarrito.valor'); // Esta ruta está dentro de micarrito
 
 // Rutas para metodo de pago (tarjeta)
@@ -75,5 +76,7 @@ Route::post('/verify-email-domain', [PaymentController::class, 'verifyEmailDomai
 Route::post('/login-session', [LoginController::class, 'call_login_session'])->name('login.session');
 Route::post('/register', [LoginController::class, 'register'])->name('register');
 Route::get('confirm-email/{token}', [LoginController::class, 'call_confirmEmail'])->name('confirm.email');
-Route::get('/logout', [PaginacionController::class, 'call_logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'call_logout'])->name('logout');
 Route::post('/logout-session', [LoginController::class, 'call_logout_session'])->name('logout.session');
+
+// ./vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
