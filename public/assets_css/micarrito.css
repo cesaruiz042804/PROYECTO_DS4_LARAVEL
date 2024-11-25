@@ -13,30 +13,6 @@ body {
     background-image: radial-gradient(circle at 0% 0%, var(--celeste_), transparent);
 }
 
-
-/*Start Fonts and variables for colors*/
-@font-face {
-    font-family: 'Poppins';
-    src: url("{{ asset('fonts/Poppins/Poppins-ExtraBold.ttf') }}") format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Saira';
-    src: url("{{ asset('fonts/Saira/static/Saira-Regular.ttf') }}") format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SairaE';
-    src: url("{{ asset('fonts/Saira/static/Saira-ExtraBold.ttf') }}") format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
 :root {
     --brown_: #671F1F;
     --pink_: #EF83D180;
