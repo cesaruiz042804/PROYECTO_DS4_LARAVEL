@@ -51,6 +51,4 @@
     </div>
 </header>
 
-
-
 <script src="{{ asset('assets_js/partials/navbar.js') }}"></script>
