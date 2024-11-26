@@ -12,7 +12,7 @@
             <li><a class="nav__list-a" href="{{ route('Productos.micarrito') }}">Mi carrito</a></li>
             <li><a class="nav__list-a" href="{{ route('Soporte') }}">Soporte al cliente</a></li>
             @if (session()->has('user'))
-                <div id="openModal">
+                <div id="openModal-desktop">
                     <li><a class="nav__list-a enlaceLogin" href="#">Cerrar Sesión</a></li>
                 </div>
             @else
@@ -31,7 +31,8 @@
                     <li><a class="navSecundario__list-a" href="#">Cerrar Sesión</a></li>
                 </div>
             @else
-                <li><a class="navSecundario__list-a enlaceLogin" href="{{ route('Iniciar-Sesion') }}">Iniciar Sesión</a></li>
+                <li><a class="navSecundario__list-a enlaceLogin" href="{{ route('Iniciar-Sesion') }}">Iniciar
+                        Sesión</a></li>
             @endif
         </ul>
     </nav>
@@ -44,7 +45,7 @@
                 </div>
                 <div class="container-session">
                     <button type="button" id="closeModal">Continuar sesión</button>
-                    <button>Cerrar sessión</button>
+                    <button type="submit">Cerrar sessión</button>
                 </div>
             </form>
         </div>

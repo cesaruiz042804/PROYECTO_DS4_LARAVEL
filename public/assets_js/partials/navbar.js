@@ -8,17 +8,19 @@ menuBtn.addEventListener('click', () => {
    img.classList.toggle('quitar');
 });
 
-const openModalBtn = document.getElementById('openModal');
+const openModalDesktopBtn  = document.getElementById('openModal-desktop');
 const closeModalBtn = document.getElementById('closeModal');
 const openModalMovilBtn = document.getElementById('openModal-movil');
 const closeModalMovilBtn = document.getElementById('openModal');
 const modalOverlay = document.getElementById('modalOverlay');
 
 // Abrir modal
-if(openModalBtn){
-   openModalBtn.addEventListener('click', () => {
-      console.log('OpenModal');
-      modalOverlay.classList.add('active');
+
+// Abrir modal desde escritorio
+if (openModalDesktopBtn) {
+   openModalDesktopBtn.addEventListener('click', () => {
+       console.log('OpenModal Desktop');
+       modalOverlay.classList.add('active');
    });
 }
 
