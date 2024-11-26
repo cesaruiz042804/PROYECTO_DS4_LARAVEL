@@ -9,15 +9,18 @@ menuBtn.addEventListener('click', () => {
 });
 
 const openModalBtn = document.getElementById('openModal');
-const openModalMovilBtn = document.getElementById('openModal-movil');
 const closeModalBtn = document.getElementById('closeModal');
+const openModalMovilBtn = document.getElementById('openModal-movil');
+const closeModalMovilBtn = document.getElementById('closeModal');
 const modalOverlay = document.getElementById('modalOverlay');
 
 // Abrir modal
-openModalBtn.addEventListener('click', () => {
-   console.log('Movil');
-   modalOverlay.classList.add('active');
-});
+if(openModalBtn){
+   openModalBtn.addEventListener('click', () => {
+      console.log('Movil');
+      modalOverlay.classList.add('active');
+   });
+}
 
 // Cerrar modal
 closeModalBtn.addEventListener('click', () => {
@@ -33,9 +36,10 @@ modalOverlay.addEventListener('click', (e) => {
 });
 
 // modal movil
-
+/*
 openModalMovilBtn.addEventListener('click', () => {
    console.log('Movil');
    modalOverlay.classList.add('active');
 });
+*/
 

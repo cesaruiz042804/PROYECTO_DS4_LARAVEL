@@ -26,7 +26,7 @@
 
     <main>
         <div class="Main__ContenedorTarjeta">
-            <form class="ContenedorTarjeta-InfoTarjetas" action="{{ route('login.session') }}" method="POST">
+            <form class="ContenedorTarjeta-InfoTarjetas" id="ContenedorTarjeta-InfoTarjetas" action="{{ route('login.session') }}" method="POST">
                 @csrf
                 <h3>Inicio de Sesión</h3>
                 <label for="NombreUsuario">
@@ -40,7 +40,7 @@
                 <p>¿No tienes cuenta? Crear una cuenta</p>
                 <div class="ContenedroTarjeta-BotonesDePagar">
                     <a class="InfoTarjeta-Cambiar" href="{{ route('/Inicio-Sesion/Registro') }}">Crear Cuenta</a>
-                    <button class="InfoTarjeta-Pagar">Continuar</button>
+                    <button class="InfoTarjeta-Pagar" id="btnContinue" type="submit">Continuar</button>
                 </div>
             </form>
         </div>
@@ -48,9 +48,8 @@
 
     @include('partials.footer')
     
-    <!-- 
-        <script type="module" src="{ asset('assets_js/inicioSesion.js') }}"></script>
-    -->
+    <script src="{{ asset('assets_js/inicioSesion.js') }}"></script>
+
 </body>
 
 </html>

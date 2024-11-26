@@ -21,7 +21,7 @@
                     <img src="{{ $message->embed(public_path('recursos_index/img_check.png')) }}" alt="Check Icon"
                         width="100" height="100" style="display: block; margin: 0 auto;">
                 </p>
-                <p style="font-size: 16px; margin: 10px 0;">Hola, gracias por registrarte en Shiri-E. Para
+                <p style="font-size: 16px; margin: 10px 0;">Hola, gracias por registrarte en Shirini-E. Para
                     activar tu cuenta, por favor haz clic en el siguiente enlace:</p>
             </div>
             <div style="justify-content: center; align-content: center; text-align: center;">
@@ -29,7 +29,8 @@
                     style="display: inline-block; background-color: #75aafa; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; margin-top: 20px; transition: background-color 0.3s ease;">
                     Activar cuenta
                 </a>
-                <hr style="height: 2px; background: linear-gradient(to right, #f7f5ff, #724366); width: 80%; margin: 20px auto;">
+                <hr
+                    style="height: 2px; background: linear-gradient(to right, #f7f5ff, #724366); width: 80%; margin: 20px auto;">
                 <p style="font-size: 16px; margin: 10px 0;">Si no solicitaste este correo, puedes ignorarlo.</p>
             </div>
         </div>
@@ -37,6 +38,5 @@
 
 </body>
 
-</head>
 
 </html>

@@ -15,14 +15,14 @@ body{
 /*Start Fonts and variables for colors*/
 @font-face {
     font-family: 'Poppins';
-    src: url("{{ asset('fonts/Poppins/Poppins-ExtraBold.ttf') }}") format('woff2');
+    src: url('recursos_index/fonts/Poppins/Poppins-ExtraBold.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SairaE';
-    src: url("{{ asset('fonts/Saira/static/Saira-ExtraBold.ttf') }}") format('woff2');
+    src: url('recursos_index/fonts/Saira/static/Saira-ExtraBold.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -129,6 +129,11 @@ main{
     border: none;
     font-size: inherit;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.ContenedroTarjeta-BotonesDePagar button:hover {
+    transform: scale(1.05); /* Aumenta el tamaño en un 10% */
 }
 
 /*Psudoe-clases para el main-------start*/

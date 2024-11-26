@@ -43,7 +43,7 @@
                     <span>Deseas cerrar la sesión?</span>
                 </div>
                 <div class="container-session">
-                    <button type="button" id="closeModal">Continuar sesión</button>
+                    <button type="button">Continuar sesión</button>
                     <button id="closeModal">Cerrar sessión</button>
                 </div>
             </form>
