@@ -21,7 +21,7 @@
                     <img src="{{ $message->embed(public_path('recursos_index/img_check.png')) }}" alt="Check Icon"
                         width="100" height="100" style="display: block; margin: 0 auto;">
                 </p>
-                <p style="font-size: 16px; margin: 10px 0;">Hola, gracias por registrarte en Patitas al rescate. Para
+                <p style="font-size: 16px; margin: 10px 0;">Hola, gracias por registrarte en Shiri-E. Para
                     activar tu cuenta, por favor haz clic en el siguiente enlace:</p>
             </div>
             <div style="justify-content: center; align-content: center; text-align: center;">

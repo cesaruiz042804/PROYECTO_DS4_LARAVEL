@@ -60,7 +60,7 @@ class LoginController extends Controller
             Mail::to($user->email)->send(new ConfirmationEmail($token));
             //Mail::to('cesaruiz042804@gmail.com')->send(new ConfirmationEmail($token));
 
-            return redirect()->route('Iniciar-Sesion')->with('message', 'Te hemos enviado un correo para confirmar tu correo')->with('log', 'success')->with('partialsMessage', 'ok');
+            return redirect()->route('Iniciar-Sesion')->with('message', 'Te hemos enviado un correo para confirmar tu correo.')->with('log', 'success')->with('partialsMessage', 'ok');
         } catch (ValidationException $exception) {
             return redirect()->back()->withErrors($exception->errors())->withInput();
         }
