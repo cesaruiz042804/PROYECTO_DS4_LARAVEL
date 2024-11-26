@@ -11,35 +11,41 @@ menuBtn.addEventListener('click', () => {
 const openModalBtn = document.getElementById('openModal');
 const closeModalBtn = document.getElementById('closeModal');
 const openModalMovilBtn = document.getElementById('openModal-movil');
-const closeModalMovilBtn = document.getElementById('closeModal');
+const closeModalMovilBtn = document.getElementById('openModal');
 const modalOverlay = document.getElementById('modalOverlay');
 
 // Abrir modal
 if(openModalBtn){
    openModalBtn.addEventListener('click', () => {
-      console.log('Movil');
+      console.log('OpenModal');
       modalOverlay.classList.add('active');
    });
 }
 
 // Cerrar modal
-closeModalBtn.addEventListener('click', () => {
-   console.log('Movil');
-   modalOverlay.classList.remove('active');
-});
+if (closeModalBtn) {
+   closeModalBtn.addEventListener('click', () => {
+       modalOverlay.classList.remove('active');
+   });
+}
 
+if (closeModalMovilBtn) {
+   closeModalMovilBtn.addEventListener('click', () => {
+       modalOverlay.classList.remove('active');
+   });
+}
 // Cerrar modal al hacer clic fuera de él
 modalOverlay.addEventListener('click', (e) => {
    if (e.target === modalOverlay) {
+      console.log('RemoveModal');
       modalOverlay.classList.remove('active');
    }
 });
 
 // modal movil
-/*
-openModalMovilBtn.addEventListener('click', () => {
-   console.log('Movil');
-   modalOverlay.classList.add('active');
-});
-*/
 
+if(openModalMovilBtn){
+   openModalMovilBtn.addEventListener('click', () => {
+      modalOverlay.classList.add('active');
+   });
+}
