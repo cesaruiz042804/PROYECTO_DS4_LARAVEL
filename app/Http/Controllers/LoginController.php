@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Mail;
 use \App\Mail\ConfirmationEmail;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Log;
+use Swift_TransportException;
+use Exception;
 
 class LoginController extends Controller
 {
@@ -57,12 +59,18 @@ class LoginController extends Controller
                 'password' => Hash::make($validatedData['password']), // Encriptar la contraseña
             ]);
             
-            Mail::to($user->email)->send(new ConfirmationEmail($token));
-            //Mail::to('cesaruiz042804@gmail.com')->send(new ConfirmationEmail($token));
+            try {
+                Mail::to($user->email)->send(new ConfirmationEmail($token));
+
+            } catch (Exception $e) {
+                // Puedes registrar el error o intentar reintentar
+                Log::error('Error al enviar el correo: ' . $e->getMessage());
+                return redirect()->back()->with('partialsMessage', 'okno');
+            }
 
             return redirect()->route('Iniciar-Sesion')->with('message', 'Te hemos enviado un correo para confirmar tu correo (si el correo no le llega de inmediato, puede tardar entre una hora para su llegada).')->with('log', 'success')->with('partialsMessage', 'ok');
         } catch (ValidationException $exception) {
-            return redirect()->back()->with('message', 'No hemos podido enviar el correo porque el correo puede ser inexistente')->with('log', 'success')->with('partialsMessage', 'okno');
+            return redirect()->back()->withErrors($exception->errors())->withInput()->with('message', 'No hemos podido enviar el correo porque el correo puede ser inexistente')->with('log', 'success')->with('partialsMessage', 'okno');
         }
     }
 
