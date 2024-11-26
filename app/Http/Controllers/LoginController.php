@@ -62,7 +62,7 @@ class LoginController extends Controller
 
             return redirect()->route('Iniciar-Sesion')->with('message', 'Te hemos enviado un correo para confirmar tu correo (si el correo no le llega de inmediato, puede tardar entre una hora para su llegada).')->with('log', 'success')->with('partialsMessage', 'ok');
         } catch (ValidationException $exception) {
-            return redirect()->back()->with('message', 'El correo ingresado no existe')->with('log', 'success')->with('partialsMessage', 'okno');
+            return redirect()->back()->with('message', 'No hemos podido enviar el correo porque el correo puede ser inexistente')->with('log', 'success')->with('partialsMessage', 'okno');
         }
     }
 
