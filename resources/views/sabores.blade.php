@@ -40,14 +40,14 @@
                 </div>
                 <div class="carousel-item" data-name="ChocoWest">
                     <a href="{{ route('Helados.ChocoWest') }}">
-                        <img src="{{ asset('recursos_carrusel/Chocowest.png') }}" alt="ChocoWest">
+                        <img src="{{ asset('recursos_carrusel/chocowest.png') }}" alt="ChocoWest">
                     </a>
                     <p>ChocoWest</p>
                     <p>$15.99</p>
                 </div>
                 <div class="carousel-item" data-name="Cereza">
                     <a href="{{ route('Helados.Cereza')}}">
-                        <img src="{{ asset('recursos_carrusel/Cereza.png') }}" alt="Cereza">
+                        <img src="{{ asset('recursos_carrusel/cereza.png') }}" alt="Cereza">
                     </a>
                     <p>Cereza</p>
                     <p>$15.99</p>

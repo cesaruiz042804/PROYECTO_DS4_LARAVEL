@@ -17,7 +17,7 @@
     <main>
         <div class="product-container">
             <div class="product-image">
-                <img src="{{ asset('recursos_micarrito/Chocolate.png') }}" alt="ChocoWest">
+                <img src="{{ asset('recursos_micarrito/chocolate.png') }}" alt="ChocoWest">
                 <h1>ChocoWest</h1>
             </div>
             <div class="product-info">

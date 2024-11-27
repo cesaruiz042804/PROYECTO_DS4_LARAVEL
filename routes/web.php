@@ -80,3 +80,7 @@ Route::get('/logout', [LoginController::class, 'call_logout'])->name('logout');
 Route::post('/logout-session', [LoginController::class, 'call_logout_session'])->name('logout.session');
 
 // ./vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
+
+// git add .
+// git commit -m "Descripción de los cambios realizados"
+// git push origin master     o main

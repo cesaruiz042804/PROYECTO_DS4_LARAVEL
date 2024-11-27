@@ -15,7 +15,7 @@
     <main>
         <div class="product-container">
             <div class="product-image">
-                <img src="{{ asset('recursos_micarrito/cookies.png') }}" alt="Cookie">
+                <img src="{{ asset('recursos_micarrito/Cookies.png') }}" alt="Cookie">
                 <h1>Cookie</h1>
             </div>
             <div class="product-info">
