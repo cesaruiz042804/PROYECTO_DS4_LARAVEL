@@ -98,7 +98,7 @@ class LoginController extends Controller
             }
 
             // Verificar si el token ha expirado (por ejemplo, 60 minutos)
-            $expirationTime = 60; // minutos
+            $expirationTime = 120; // minutos
             $createdAt = \Carbon\Carbon::parse($confirmation->created_at); // Obtener la fecha de creación
             if ($createdAt->addMinutes($expirationTime)->isPast()) {
                 // Si ha pasado el tiempo de expiración
