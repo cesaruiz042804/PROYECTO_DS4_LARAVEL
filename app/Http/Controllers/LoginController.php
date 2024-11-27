@@ -51,11 +51,11 @@ class LoginController extends Controller
 
             $user = table_email_confirmation::where('email', $request->email)->first();
 
-            if($user){ // Esto me sirve para saber si el correo se ha intentado registrar de nuevo
+            if ($user) { // Esto me sirve para saber si el correo se ha intentado registrar de nuevo
                 return redirect()->back()->with('message', 'Este correo ya está registrado. Por favor, revisa tu bandeja de entrada (y la carpeta de spam) para confirmar tu cuenta.')->with('log', 'success')->with('partialsMessage', 'ok');
             }
 
-            
+
             $token = Str::random(60); // Generar un token único
 
             // Crear el nuevo usuario
@@ -66,12 +66,11 @@ class LoginController extends Controller
                 'phone' => $validatedData['phone'], // tel se convierte en telefono
                 'password' => Hash::make($validatedData['password']), // Encriptar la contraseña
             ]);
-            
+
             try {
                 Mail::to($user->email)->send(new ConfirmationEmail($token));
-
             } catch (Exception $e) {
-                
+
                 Log::error('Error al enviar el correo: ' . $e->getMessage()); // Puedes registrar el error o intentar reintentar
                 return redirect()->back()->with('message', 'Error al intentar enviar el correo')->with('partialsMessage', 'okno');
             }
@@ -84,28 +83,41 @@ class LoginController extends Controller
 
     public function call_confirmEmail($token)
     {
-
         if (empty($token)) {
             return redirect()->route('Iniciar-Sesion')->with('message', 'El token es inválido o no se proporcionó.')->with('partialsMessage', 'okno');
         }
-        
+
         try {
             // Buscar el token en la base de datos
-            $confirmation =  table_email_confirmation::where('token', $token)->first();
+            $confirmation = table_email_confirmation::where('token', $token)->first();
 
             if (!$confirmation) {
                 return redirect()->route('Iniciar-Sesion')->with(['message' => 'Token no válido.'])->with('partialsMessage', 'okno');
             }
 
-            // Verificar si el token ha expirado (por ejemplo, 60 minutos)
+            // Verificar si el token ha expirado (por ejemplo, 120 minutos)
             $expirationTime = 120; // minutos
             $createdAt = \Carbon\Carbon::parse($confirmation->created_at); // Obtener la fecha de creación
-            if ($createdAt->addMinutes($expirationTime)->isPast()) {
-                // Si ha pasado el tiempo de expiración
-                return  redirect()->route('Iniciar-Sesion')->with(['message' => 'El token ha expirado.'])->with('partialsMessage', 'okno');
+            $expiration = $createdAt->addMinutes($expirationTime); // Sumar el tiempo de expiración
+
+            // Si la fecha actual es posterior a la fecha de expiración, significa que el token ha expirado
+            if (\Carbon\Carbon::now()->isAfter($expiration)) {
+                // El token ha expirado, generar uno nuevo
+                $newToken = Str::random(60); // Generar un nuevo token
+
+                // Actualizar el token y la fecha de creación para que sea nuevo
+                $confirmation->update([
+                    'token' => $newToken,
+                    'created_at' => \Carbon\Carbon::now(), // Actualizamos la fecha de creación para que la expiración sea relativa a ahora
+                ]);
+
+                // Enviar el nuevo token por correo electrónico
+                Mail::to($confirmation->email)->send(new ConfirmationEmail($newToken));
+
+                return redirect()->route('Iniciar-Sesion')->with(['message' => 'El token ha expirado. Hemos enviado un nuevo correo de verificación. Revisa tu bandeja de entrada (y tu spam).'])->with('partialsMessage', 'ok');
             }
 
-            // Crear el usuario definitivo
+            // Si el token no ha expirado, procedemos a crear el usuario definitivo
             table_user::create([
                 'email' => $confirmation->email,
                 'name' => $confirmation->name,
@@ -113,7 +125,7 @@ class LoginController extends Controller
                 'password' => $confirmation->password, // Aquí ya está encriptada
             ]);
 
-            // Eliminar el token de la base de datos
+            // Eliminar el token de la base de datos después de la confirmación
             table_email_confirmation::where('token', $token)->delete();
 
             return redirect()->route('index')->with(['message' => 'Cuenta confirmada con éxito.'])->with('partialsMessage', 'ok');
@@ -125,10 +137,10 @@ class LoginController extends Controller
     public function call_login_session(Request $request)
     {
         // Validar las credenciales
-        $request->validate([
+        $request->validate([ // reglas de validación para los campos
             'email' => 'required|email',
             'password' => 'required|string',
-        ],  [
+        ],  [ // mensajes de error para cada una de las reglas puestas anteriormente
             'email.required' => 'El campo de correo electrónico es obligatorio.',
             'password.required' => 'El campo de contraseña es obligatorio.',
         ]);

@@ -20,9 +20,7 @@
             <button><i class="fa fa-search"></i></button>
         </div>
         <div class="carousel">
-            <!--
             <button class="prev">&#10094;</button>
-            -->
             <div class="carousel-items">
                 <div class="carousel-item" data-name="Vainilla">
                     <a href="{{ route('Helados.Vainilla') }}">
@@ -67,9 +65,7 @@
                     <p>$20.99</p>
                 </div>
             </div>
-            <!--
             <button class="next">&#10095;</button>
-            -->
         </div>
 
         <script src="{{ asset('assets_js/sabores.js') }}"></script>
