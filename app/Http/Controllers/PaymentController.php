@@ -4,14 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Stripe\Stripe;
-//use Stripe\PaymentMethod;
-//use Stripe\Exception\ApiErrorException;
 use Stripe\Charge;
-//use Stripe\Card;
-//use App\Jobs\ProcessPayment;
-//use Predis\Client;
 use Illuminate\Support\Facades\Log;
-//use Termwind\Components\Raw;
 use \App\Mail\EmailSender;
 use Illuminate\Support\Facades\Mail;
 use App\Jobs\jobEmailPayment;
@@ -72,7 +66,9 @@ class PaymentController extends Controller
 
             session(['iconPath' => $iconPath, 'cardType' => $cardType]);
 
-            Mail::to($email)->send(new EmailSender($name, $amount, $cardType));
+            $cont = \App\Models\table_user::count(); // Busca la cantidad total de registros
+
+            Mail::to($email)->send(new EmailSender($name, $amount, $cardType, $cont));
 
             return redirect()->route('payment.success')->with('success', 'Payment successful!');
         } catch (\Exception $e) { // En el caso que se haga bien la compra te redirecciona a otra pagina

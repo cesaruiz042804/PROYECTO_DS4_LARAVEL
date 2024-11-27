@@ -18,12 +18,14 @@ class EmailSender extends Mailable
     public $amount;
     public $cardType;
     public $name;
+    public $customer_number;
 
-    public function __construct($name, $amount, $cardType)
+    public function __construct($name, $amount, $cardType, $customer_number)
     {
         $this->amount = $amount;
         $this->cardType = $cardType;
         $this->name = $name;
+        $this->customer_number = $customer_number;
     }
 
     public function build()
@@ -36,6 +38,7 @@ class EmailSender extends Mailable
         ->with(['amount' => $this->amount])
         ->with(['cardType' => $this->cardType])
         ->with(['date_actually' => $fechaFormateada])
+        ->with(['ncustomer_number' =>  $this->customer_number])
         ->subject('Tienda online Shirini-e');
 
         return $email;

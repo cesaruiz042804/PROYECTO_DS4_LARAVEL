@@ -16,7 +16,7 @@
         <div style="padding: 20px;">
             <h1 style="font-size: 24px; color: #D6E9FF; margin: 0 0 10px;">¡Hola, {{ $name }}!</h1>
             <p style="font-size: 16px; line-height: 1.5; margin: 10px 0;">Información sobre la compra:</p>
-            <p style="font-size: 16px; line-height: 1.5; margin: 10px 0;">Número de pedido: 1</p>
+            <p style="font-size: 16px; line-height: 1.5; margin: 10px 0;">Número de pedido: {{ $customer_number }}</p>
             <p style="font-size: 16px; line-height: 1.5; margin: 10px 0;">Método de pago: card {{ $cardType }}</p>
             <p style="font-size: 16px; line-height: 1.5; margin: 10px 0;">Fecha de compra: {{ $date_actually }}</p>
             <p style="font-size: 16px; line-height: 1.5; margin: 10px 0;">Total pagado: {{ $amount }}$</p>
