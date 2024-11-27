@@ -3,6 +3,7 @@ const btnRegister = document.getElementById("btnRegister");
 
 // Agrega un evento 'click' al botón
 btnRegister.addEventListener("click", function() {
+
     // Desactiva el botón
     btnRegister.disabled = true;
 

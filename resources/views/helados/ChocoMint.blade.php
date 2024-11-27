@@ -21,27 +21,20 @@
                 <h1>ChocoMint</h1>
             </div>
             <div class="product-info">
-
                 <p>
-                    Fresca y deliciosa, nuestra combinación de <br> chocolate y menta es el equilibrio perfecto
-                    <br>entre lo cremoso y lo refrescante. El helado <br>de chocomenta está hecho con auténtico
-                    <br>extracto
-                    de menta y trozos crujientes de<br> chocolate oscuro, creando una experiencia <br>de sabor que te
-                    dejará con ganas de más.<br> Cada cucharada te
-                    envuelve en un<br> contraste único de frescura y dulzura, ideal<br>
-                    para los amantes de sabores vibrantes. <br>¡Déjate llevar por la irresistible fusión de <br>menta y
-                    chocolate!
-
-
+                    Disfruta de la refrescante combinación de chocolate y menta con nuestro helado ChocoMint.
+                    Este delicioso helado está hecho con el mejor chocolate oscuro y un toque de menta fresca,
+                    creando una experiencia única y revitalizante. Su textura suave y su sabor equilibrado
+                    hacen de ChocoMint la elección perfecta para quienes buscan un postre refrescante y delicioso.
                 </p>
                 <button class="order-button"><a href="{{ route('Productos.micarrito') }}">Ordenar ahora</a></button>
             </div>
         </div>
 
     </main>
-    
+
     @include('partials.footer')
-    
+
 </body>
 
 </html>

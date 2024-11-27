@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Mail;
 use \App\Mail\ConfirmationEmail;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Log;
-use Swift_TransportException;
 use Exception;
 
 class LoginController extends Controller
@@ -35,6 +34,7 @@ class LoginController extends Controller
                     'regex:/[0-9]/', // Al menos un número
                     'regex:/[\W_]/', // Al menos un carácter especial
                 ],
+                'confirm_password' => 'required|same:password',  // La regla 'same' compara con el campo 'email'
             ],  [
                 'email.required' => 'El campo de correo electrónico es obligatorio.',
                 'email.email' => 'El formato del correo electrónico es inválido.',
@@ -45,10 +45,18 @@ class LoginController extends Controller
                 'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
                 'password.required' => 'La contraseña es obligatoria.',
                 'password.regex' => 'La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.',
+                'confirm_confirm_passwordemail.required' => 'El campo para confirmar la contraseña es obligatorio.',
+                'confirm_password.same' => 'Los campos de contraseña deben coincidir.',
             ]);
 
-            // Generar un token único
-            $token = Str::random(60);
+            $user = table_email_confirmation::where('email', $request->email)->first();
+
+            if($user){ // Esto me sirve para saber si el correo se ha intentado registrar de nuevo
+                return redirect()->back()->with('message', 'Este correo ya está registrado. Por favor, revisa tu bandeja de entrada (y la carpeta de spam) para confirmar tu cuenta.')->with('log', 'success')->with('partialsMessage', 'ok');
+            }
+
+            
+            $token = Str::random(60); // Generar un token único
 
             // Crear el nuevo usuario
             $user = table_email_confirmation::create([
@@ -63,9 +71,9 @@ class LoginController extends Controller
                 Mail::to($user->email)->send(new ConfirmationEmail($token));
 
             } catch (Exception $e) {
-                // Puedes registrar el error o intentar reintentar
-                Log::error('Error al enviar el correo: ' . $e->getMessage());
-                return redirect()->back()->with('partialsMessage', 'okno');
+                
+                Log::error('Error al enviar el correo: ' . $e->getMessage()); // Puedes registrar el error o intentar reintentar
+                return redirect()->back()->with('message', 'Error al intentar enviar el correo')->with('partialsMessage', 'okno');
             }
 
             return redirect()->route('Iniciar-Sesion')->with('message', 'Te hemos enviado un correo para confirmar tu correo (si el correo no le llega de inmediato, puede tardar entre una hora para su llegada).')->with('log', 'success')->with('partialsMessage', 'ok');

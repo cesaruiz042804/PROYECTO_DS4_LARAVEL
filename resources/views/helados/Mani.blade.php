@@ -19,19 +19,10 @@
                 <h1>Mani</h1>
             </div>
             <div class="product-info">
-                
                 <p>
-                    Disfruta del sabor profundo y la cremosidad <br>de nuestro
-                     helado de maní, elaborado con <br>auténtica mantequilla de
-                      maní para una <br>experiencia rica y suave. Cada bocado es<br> 
-                      una combinación perfecta de dulzura y el <br>sabor distintivo 
-                      del maní, con toques <br>salados que realzan su intensidad. 
-                      Ideal <br>para los verdaderos amantes de este fruto<br> seco, 
-                      nuestro helado de maní es el equilibrio <br>perfecto entre 
-                      lo cremoso y lo crujiente. <br>¡Déjate seducir por
-                       su irresistible sabor!
-
-                    
+                    Disfruta del sabor profundo y la cremosidad de nuestro helado de Maní.
+                    Este exquisito helado está hecho con maní tostado y caramelizado, ofreciendo una experiencia
+                    única que te hará querer más. Perfecto para aquellos que buscan un postre indulgente y satisfactorio.
                 </p>
                 <button class="order-button"><a href="{{ route('Productos.micarrito') }}">Ordenar ahora</a></button>
             </div>

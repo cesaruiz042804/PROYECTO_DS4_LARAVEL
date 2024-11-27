@@ -9,7 +9,6 @@ body{
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(200deg,  #b3e5fc 0%, #517d76 100%);
-    overflow: hidden;
 }
 /*Start Fonts and variables for colors*/
 @font-face {
@@ -39,208 +38,74 @@ body{
 
 /*Seccion main---------------Start*/
 main{
-    height: 100dvh;
-    overflow: hidden;
-}
-/*Section main---------------End*/
-
-/*Seccion footer---------------Inicio*/
-
-.Contenedor__Items1{
-    font-size: 15px;
-    display: inline-block;
-    width: 150px;
-    padding: 0;
-    align-items: center;
+    padding-top: 15dvh;
+    margin-bottom: 30px;
 }
 
-.Contenedor__Items2{
-    font-size: 15px;
-    display: inline-block;
-    width: 200px;
-    padding: 0;
-    align-items: center;
-}
-
-/*Psudoe-clases para el button del main-------final*/
-.Contenedor__Items1 a:active{
-    color: #0001;
-}
-
-.Contenedor__Items1 a:visited{
-    color: black;
-}
-
-.Contenedor__Items1 a:hover{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    padding: 5px;
+/* Estilos para la sección de preguntas y respuestas */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
 
-.Contenedor__Items1 a:focus{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.Contenedor__Items2 a:active{
-    color: #0001;
-}
-
-.Contenedor__Items2 a:visited{
-    color: black;
-}
-
-.Contenedor__Items2 a:hover{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.Contenedor__Items2 a:focus{
-    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.preguntas-respuestas{
-    
-    margin-top: 10%;
-    width: 500px;
-    height: 400px;
-    border-radius: 15px;
-    margin-left: 120px;
-    font-size: 12px;
-    overflow-y: scroll;
-    
-}
-
-.numero1-{
-    
-    align-content: center;
-    background-color: white;
-    width: 500px;
-    height: 400px;
-    border-radius: 15px;
-    font-size: 12px;
- 
-}
-.numero1- p{
- 
-    width: 400px;
-    height: 300px;
-    border-radius: 15px;
-    margin-left: 30px;
-    font-size: 12px;
-    
-}
-.numero1- h1{
-    
-   text-align: center;
-}
-
-.numero2-{
-    margin-top: 5%;
-    align-content: center;
-    background-color: white;
-    width: 500px;
-    height: 400px;
-    border-radius: 15px;
-    font-size: 12px;
- 
-}
-.numero2- p{
-    
-    margin-top: 5%;
-    width: 400px;
-    height: 300px;
-    border-radius: 15px;
-    margin-left: 30px;
-    font-size: 12px;
-
-}
-
-
-
-
-.terminos-condiciones{
-      
-    margin-top: -32%;
-    width: 450px;
-    height: 400px;
-    border-radius: 15px;
-    margin-left: 55%;
-    font-size: 12px;
-    overflow: scroll;
-    
-    
-}
-
-.numero1{
-    align-content: center;
-    background-color: white;
-    width: 450px;
-    height: 240px;
-    border-radius: 15px;
-    font-size: 12px;
-    
-    
-}
-.numero1 p{
-    
-    margin-top: 5%;
-    width: 350px;
-    height: 300px;
-    border-radius: 15px;
-    margin-left: 30px;
-    font-size: 12px;
-
-}
-
-.numero1 h1{
-   
+h1 {
     text-align: center;
+    color: #333;
 }
 
-.numero2{
-    margin-top: 5%;
-    align-content: center;
-    background-color: white;
-    width: 450px;
-    height: 200px;
-    border-radius: 15px;
-    font-size: 12px;
- 
-}
-.numero2 p{
-    
-    margin-top: 5%;
-    width: 350px;
-    height: 300px;
-    border-radius: 15px;
-    margin-left: 30px;
-    font-size: 12px;
-
+main ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.numero3{
-    margin-top: 5%;
-    align-content: center;
-    background-color: white;
-    width: 450px;
-    height: 250px;
-    border-radius: 15px;
-    font-size: 12px;
- 
-}
-.numero3 p{
-    
-    margin-top: 5%;
-    width: 350px;
-    height: 300px;
-    border-radius: 15px;
-    margin-left: 30px;
-    font-size: 12px;
-
+main li {
+    margin: 20px 0;
+    padding: 10px;
+    background: #f9f9f9;
+    border-left: 5px solid #007BFF;
 }
 
+main li p {
+    margin: 10px 0 0 0;
+}
+
+.terminos-condiciones {
+    margin-top: 40px;
+}
+
+.terminos-condiciones h1 {
+    text-align: center;
+    color: #333;
+}
+
+.terminos-condiciones p {
+    margin: 10px 0;
+    padding: 10px;
+    background: #f9f9f9;
+}
+
+.borderleft{
+    border-left: 5px solid #007BFF;
+}
+
+/* Media queries para adaptar el main a dispositivos móviles */
+@media (max-width: 768px) {
+    main .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    main li {
+        margin: 10px 0;
+        padding: 5px;
+    }
+
+    main .terminos-condiciones p.numero,
+    main .terminos-condiciones p.none {
+        padding: 5px;
+    }
+}

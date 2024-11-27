@@ -35,8 +35,11 @@
                 </label>
                 <label for="contraseña">
                     Contraseña
-                    <input type="password" placeholder="Contraseña" id="contraseña" name="password"
-                        value="{{ old('password') }}">
+                    <input type="password" placeholder="Contraseña" id="contraseña" name="password">
+                </label>
+                <label for="confirm_password">
+                    Confirmar contraseña
+                    <input type="password" placeholder="Confirmar contraseña" id="confirm_password" name="confirm_password">
                 </label>
                 <label for="nombreusuario">
                     Nombre completo

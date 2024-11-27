@@ -19,16 +19,10 @@
                 <h1>Cookie</h1>
             </div>
             <div class="product-info">
-                
                 <p>
-                    Sumérgete en la deliciosa combinación de <br>cremosidad y
-                     crujiente con nuestro helado<br> de Cookies 'n Cream. Este
-                      clásico irresistible<br> mezcla una base de helado suave y<br>
-                       cremosa con generosos trozos de galletas <br>de chocolate, 
-                       creando una experiencia<br> indulgente en cada cucharada.
-                        Perfecto<br> para los amantes de lo dulce y lo crujiente,<br>
-                         este helado es la fusión perfecta entre <br>textura y sabor. 
-                         ¡Un placer que no podrás <br>dejar de disfrutar
+                    Sumérgete en la deliciosa combinación de cremosidad y crujiente con nuestro helado de Cookie.
+                    Este exquisito helado está hecho con trozos de galleta de chocolate, ofreciendo una experiencia
+                    única que te hará querer más. Perfecto para aquellos que buscan un postre indulgente y satisfactorio.
                 </p>
                 <button class="order-button"><a href="{{ route('Productos.micarrito') }}">Ordenar ahora</a></button>
             </div>

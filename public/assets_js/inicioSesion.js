@@ -2,6 +2,7 @@ const btnContinue = document.getElementById("btnContinue");
 
 // Agrega un evento 'click' al botón
 btnContinue.addEventListener("click", function() {
+
     // Desactiva el botón
     btnContinue.disabled = true;
 

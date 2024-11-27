@@ -21,19 +21,12 @@
                 <h1>Vainilla</h1>
             </div>
             <div class="product-info">
-
                 <p>
-                    Descubre la suavidad y el sabor auténtico <br> de nuestro helado de vainilla. Elaborado con
-                    <br>vainilla
+                    Descubre la suavidad y el sabor auténtico de nuestro helado de vainilla. Elaborado con vainilla
                     natural,
-                    cada bocado es una <br> explosión de cremosidad y dulzura que te <br> transportará a momentos de
-                    pura
-                    <br> indulgencia.
-                    Perfecto para disfrutar solo o <br> acompañado de tus toppings favoritos, este <br> clásico siempre
-                    es
-                    una elección acertada.<br>
-                    ¡Frescura, sabor y calidad en cada <br> cucharada!
-
+                    este helado ofrece una experiencia clásica y deliciosa que nunca pasa de moda. Perfecto para
+                    aquellos que
+                    buscan un postre sencillo pero exquisito.
                 </p>
                 <button class="order-button"><a href="{{ route('Productos.micarrito') }}">Ordenar ahora</a></button>
             </div>
@@ -41,11 +34,6 @@
     </main>
 
     @include('partials.footer')
-    
-    <!--
-        <script type="module" src="{ asset('assets_js/helados/Vainilla.js') }}"></script>
-    -->
-
 
 </body>
 

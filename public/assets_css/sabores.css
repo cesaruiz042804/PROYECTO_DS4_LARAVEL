@@ -46,49 +46,6 @@ main {
 }
 
 /*Psudoe-clases para el button del main-------final*/
-.Contenedor__Items1 a:active {
-    color: #0001;
-}
-
-.Contenedor__Items1 a:visited {
-    color: black;
-}
-
-.Contenedor__Items1 a:hover {
-    transform: scale(1.1);
-    /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.Contenedor__Items1 a:focus {
-    transform: scale(1.1);
-    /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.Contenedor__Items2 a:active {
-    color: #0001;
-}
-
-.Contenedor__Items2 a:visited {
-    color: black;
-}
-
-.Contenedor__Items2 a:hover {
-    transform: scale(1.1);
-    /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.Contenedor__Items2 a:focus {
-    transform: scale(1.1);
-    /* Aumenta el tamaño en un 10% */
-    padding: 5px;
-    border-radius: 5px;
-}
 
 .search-bar {
     display: flex;
@@ -112,36 +69,45 @@ main {
     margin-left: -40px;
 }
 
-.carousel {
+.carousel{
     display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
     position: relative;
     width: 100%;
     margin: 0 auto;
     margin-top: 75px;
+    padding-bottom: 30px;
+    height: auto;
 }
 
 .carousel-items {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 300%;
+    width: 100%;
+    overflow-x:auto;
 }
+
+.carousel-items::-webkit-scrollbar {
+    height: 6px; /* Ajusta la altura de la barra horizontal */
+  }
+  
+.carousel-items::-webkit-scrollbar-thumb {
+    background: #888; /* Color del control deslizante */
+    border-radius: 4px; /* Bordes redondeados */
+  }
 
 .carousel-item {
-    min-width: calc(28% - 40px);
-    /* Ajusta el porcentaje y el espacio deseado */
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
-    text-align: center;
-    margin-right: 30px;
-    /* Espacio entre las imágenes */
+    padding-right: 10px;
+    padding-left: 10px;
 }
+    
 
 .carousel-item img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+    width: 250px; 
+    height: 250px; 
+    object-fit: cover; 
     border-radius: 10px;
 }
 
@@ -152,20 +118,17 @@ main {
 }
 
 .carousel-item:last-child {
-    margin-right: 0;
+    margin-right: 0; 
 }
 
-.prev,
-.next {
-    background-color: #ff9999;
+.prev, .next {
     border: none;
-    color: white;
     font-size: 30px;
-    padding: 10px;
+    padding: 5px;
     cursor: pointer;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-60%);
     z-index: 1;
 }
 
@@ -180,20 +143,38 @@ main {
 /*Psudoe-clases para el footer del main-------final*/
 /*Seccion footer---------------Final*/
 
-@media (max-width: 768px) {
-
-    .Item--Tarjeta {
-        width: 400px;
-        background-color: #671F1F;
-    }
-
-
-    .Contenedor__Img {
-        width: 500px;
-        background-color: #671F1F;
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+    main{
+        padding-top: 15vh;
+        height: 100vh;
     }
 
     .search-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .search-bar input {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .search-bar button {
         width: 80%;
     }
+
+    .carousel {
+        justify-content: normal;
+        text-align: center;
+    }
+
+    .carousel-item img {
+        width: 200px; 
+        height: 200px; 
+        border-radius: 10px;
+    }
+    
 }

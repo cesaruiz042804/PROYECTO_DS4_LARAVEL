@@ -35,7 +35,7 @@
                 </label>
                 <label for="contraseña">
                     Contraseña
-                    <input type="password" placeholder="Contraseña" id="contraseña" name="password" value="{{ old('password') }}">
+                    <input type="password" placeholder="Contraseña" id="contraseña" name="password">
                 </label>
                 <p>¿No tienes cuenta? Crear una cuenta</p>
                 <div class="ContenedroTarjeta-BotonesDePagar">
