@@ -45,7 +45,7 @@ class LoginController extends Controller
                 'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
                 'password.required' => 'La contraseña es obligatoria.',
                 'password.regex' => 'La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.',
-                'confirm_confirm_passwordemail.required' => 'El campo para confirmar la contraseña es obligatorio.',
+                'confirm_password.required' => 'El campo para confirmar la contraseña es obligatorio.',
                 'confirm_password.same' => 'Los campos de contraseña deben coincidir.',
             ]);
 
@@ -83,16 +83,14 @@ class LoginController extends Controller
 
     public function call_confirmEmail($token)
     {
-        if (empty($token)) {
-            return redirect()->route('Iniciar-Sesion')->with('message', 'El token es inválido o no se proporcionó.')->with('partialsMessage', 'okno');
-        }
-
         try {
             // Buscar el token en la base de datos
             $confirmation = table_email_confirmation::where('token', $token)->first();
 
             if (!$confirmation) {
-                return redirect()->route('Iniciar-Sesion')->with(['message' => 'Token no válido.'])->with('partialsMessage', 'okno');
+                session()->put('partialsMessage', 'okno');
+
+                return redirect()->route('/Inicio-Sesion/Registro')->withErrors(['token' => 'Token no válido.']);
             }
 
             // Verificar si el token ha expirado (por ejemplo, 120 minutos)

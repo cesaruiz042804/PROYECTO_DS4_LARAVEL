@@ -38,9 +38,6 @@ Route::get('/iniciar-sesion', [PaginacionController::class, 'call_iniciar_sesion
 
 Route::get('/soporte', [PaginacionController::class, 'call_soporte'])->name('Soporte');
 
-// Ruta para crear cuenta de registro
-
-Route::get('/inicio-sesion/registro', [PaginacionController::class, 'call_crear_cuenta'])->name('/Inicio-Sesion/Registro');
 
 // Rutas para cuando se de click en "pagar ahora", este envie el valor a metodo post, y luego llamar la vista con elo metodo get usando session
 // Se usa ajax para pasar el dato al controlador, luego se envía un json para confirmar que se hizo
@@ -71,6 +68,10 @@ Route::get('/helados/mani', [PaginacionController::class, 'call_mani'])->name('H
 
 // Ruta para confirmar los correos electrónicos
 Route::post('/verify-email-domain', [PaymentController::class, 'verifyEmailDomain'])->name('verify-email-domain'); 
+
+// Ruta para crear cuenta de registro
+
+Route::get('/inicio-sesion/registro', [PaginacionController::class, 'call_crear_cuenta'])->name('/Inicio-Sesion/Registro');
 
 // Rutas para el sistema de logueo
 Route::post('/login-session', [LoginController::class, 'call_login_session'])->name('login.session');
