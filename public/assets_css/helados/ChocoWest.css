@@ -40,6 +40,7 @@ main{
 }
 /*Section main---------------End*/
 
+
 .product-container {
     display: flex;
     flex-direction: row;
@@ -95,7 +96,6 @@ main{
     padding: 6px 10px;
 }
 
-
 /* Estilos responsivos */
 @media (max-width: 768px) {
     main {
@@ -122,4 +122,3 @@ main{
         height: auto;
     }
 }
-

@@ -39,10 +39,12 @@ body {
 /*End fonts and variables for colors*/
 
 /*Seccion main---------------Start*/
-main {
+main{
     height: 100dvh;
     overflow: hidden;
 }
+/*Section main---------------End*/
+
 
 .product-container {
     display: flex;
@@ -98,7 +100,6 @@ main {
     color: white;
     padding: 6px 10px;
 }
-
 
 /* Estilos responsivos */
 @media (max-width: 768px) {

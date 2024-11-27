@@ -8,7 +8,6 @@ body,header,main,footer{
 body{
     display: flex;
     flex-direction: column;
-  
     background-image: linear-gradient(to left ,#D4CCB9 , white);
 }
 /*Start Fonts and variables for colors*/
