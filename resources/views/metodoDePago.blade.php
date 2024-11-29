@@ -3,17 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Tienda online de helados.">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proceso de Pago</title>
-    <link rel="stylesheet" href="{{ asset('assets_css/metodoDePago.css') }} ">
-    <link rel="stylesheet" href="{{ asset('assets_css/load.css') }} "> <!-- Estilo para el div del loading que esta oculto-->
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Tienda online de helados.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('recursos_index/Logo Shirine.png') }}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <link rel="shortcut icon" href="{{ asset('recursos_index/Logo Shirine.png') }}">
+    <link rel="stylesheet" href="{{ asset('assets_css/load.css') }} "> <!-- Estilo para el div del loading que esta oculto-->
+    <link rel="stylesheet" href="{{ asset('assets_css/metodoDePago.css') }} ">
+    <title>Proceso de Pago</title>
 
 </head>
 

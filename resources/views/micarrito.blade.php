@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Tienda online de helados.">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Carrito</title>
-    <link rel="stylesheet" href="{{ asset('assets_css/micarrito.css') }}">
-    <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js') }}"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Tienda online de helados.">
     <link rel="shortcut icon" href="{{ asset('recursos_index/Logo Shirine.png') }}">
+    <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('assets_css/micarrito.css') }}">
+    <title>Mi Carrito</title>
 </head>
 
 <body>
