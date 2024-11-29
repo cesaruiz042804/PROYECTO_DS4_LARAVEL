@@ -50,7 +50,7 @@
                 </label>
                 <label for="numerotelefono">
                     Número de teléfono
-                    <input type="number" placeholder="####-####" id="numerotelefono" name="phone"
+                    <input type="text" placeholder="xxxx-xxxx" id="numerotelefono" name="phone"
                         value="{{ old('phone') }}">
                 </label>
                 <div class="ContenedroTarjeta-BotonesDePagar">
@@ -63,6 +63,7 @@
 
     @include('partials.footer')
 
+    <script src="https://cdn.jsdelivr.net/npm/imask"></script>
     <script src="{{ asset('assets_js/crearCuenta.js') }}"></script>
 
 </body>

@@ -11,3 +11,12 @@ btnRegister.addEventListener("click", function() {
     btnRegister.textContent = "Procesando...";
     document.getElementById('ContenedorTarjeta-InfoTarjetas').submit();
 });
+
+// Mascara para el input de phone
+document.addEventListener('DOMContentLoaded', function () {
+    var phoneInput = document.getElementById('numerotelefono');
+    var mask = IMask(phoneInput, {
+      mask: '0000-0000'  // Definiendo la máscara
+    });
+  });
+  
